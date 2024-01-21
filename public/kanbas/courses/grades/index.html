@@ -1,0 +1,232 @@
+<html>
+    <head></head>
+    <body>
+        <style>
+            span {
+                display: flex;
+            }
+        </style>
+        <span >
+            <label for="grade-book">  </label><br/>
+            <select id="grade-book">
+                <option value="Gradebook">Gradebook</option>
+                <option value="Other">Other</option>
+            </select>
+            <button type="button"> Import </button>
+            <label for="export">  </label><br/>
+            <select id="export">
+                <option value="Export">Export</option>
+            </select>
+            <button type="button"> Configure </button>
+        </span>
+
+        <form id="text-fields">
+            <label for="st-name">
+                <p>
+                    <h3> Student Names </h3>
+                </p>
+            </label>
+            <input id="st-name" placeholder="Search Students"/><br/>
+
+            <label for="hw-name">
+                <p>
+                    <h3>Assignment Names</h3>
+                </p>
+            </label>
+            <input id="hw-name" placeholder="Search Assignments"/><br/>
+        </form>
+        <p>
+            <button type="button"> Apply Filters </button>
+        </p>
+        <table>
+            <style>
+                table, th, td {
+                    border: 1px solid grey;
+                    text-align: center;
+                    table-layout: fixed;
+                    width: 90px;
+                }
+            </style>
+            <thead>
+                <tr>
+                    <td>Student Name </td>
+                    <td>A1 SETUP Out of 100 </td>
+                    <td>A2 HTML Out of 100 </td>
+                    <td>A3 CSS Out of 100</td>
+                    <td>A4 BOOTSTARP Out of 100</td>
+                    <td>A5 JAVASCRIPT Out of 100</td>
+                    <td>A6 REACT Out of 100</td>
+                    <td>A7 REDUX Out of 100</td>
+                    <td>A8 NODE Out of 100</td>
+                    <td>A9 MONGO Out of 100</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> Alice Wonderland</td>
+                    <td>98</td>
+                    <td>89</td>
+                    <td>87</td>
+                    <td>90</td>
+                    <td>89</td>
+                    <td>94</td>
+                    <td>88</td>
+                    <td>87</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td> Prince Leia</td>
+                    <td>98</td>
+                    <td>89</td>
+                    <td>87</td>
+                    <td>90</td>
+                    <td>89</td>
+                    <td>94</td>
+                    <td >
+                        <input style="width: 60%; text-align: center" placeholder="85"/><br/>
+                    </td>
+                    <td>87</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td> Luke Skywalker</td>
+                    <td >
+                        <input style="width: 60%; text-align: center" placeholder="95"/><br/>
+                    </td>
+                    <td>87</td>
+                    <td>98</td>
+                    <td>90</td>
+                    <td>89</td>
+                    <td>89</td>
+                    <td>100</td>
+                    <td>94</td>
+                    <td>87</td>
+                </tr>
+                <tr>
+                    <td> Han Solo</td>
+                    <td>90</td>
+                    <td>87</td>
+                    <td>98</td>
+                    <td>89</td>
+                    <td>100</td>
+                    <td>94</td>
+                    <td>89</td>
+                    <td >
+                        <input style="width: 60%; text-align: center" placeholder="92"/><br/>
+                    </td>
+                    <td>87</td>
+                </tr>
+                <tr>
+                    <td> Lando Calresian</td>
+                    <td>87</td>
+                    <td>98</td>
+                    <td >
+                        <input style="width: 60%; text-align: center" placeholder="87"/><br/>
+                    </td>
+                    <td>90</td>
+                    <td>89</td>
+                    <td>100</td>
+                    <td>94</td>
+                    <td>89</td>
+                    <td>87</td>
+                </tr>
+                <tr>
+                    <td> Boba Fet</td>
+                    <td>87</td>
+                    <td>98</td>
+                    <td>87</td>
+                    <td>90</td>
+                    <td>89</td>
+                    <td>100</td>
+                    <td>94</td>
+                    <td>89</td>
+                    <td>87</td>
+                </tr>
+                <tr>
+                    <td> Darth Vader</td>
+                    <td>87</td>
+                    <td>98</td>
+                    <td>90</td>
+                    <td>89</td>
+                    <td>100</td>
+                    <td>94</td>
+                    <td >
+                        <input style="width: 60%; text-align: center" placeholder="89"/><br/>
+                    </td>
+                    <td>89</td>
+                    <td>87</td>
+                </tr>
+                <tr>
+                    <td> Obi-Wan Kenobi</td>
+                    <td >
+                        <input style="width: 60%; text-align: center" placeholder="91"/><br/>
+                    </td>
+                    <td>87</td>
+                    <td>98</td>
+                    <td>90</td>
+                    <td>89</td>
+                    <td>100</td>
+                    <td>94</td>
+                    <td>89</td>
+                    <td>87</td>
+                </tr>
+                <tr>
+                    <td> R2-D2</td>
+                    <td>87</td>
+                    <td>98</td>
+                    <td >
+                        <input style="width: 60%; text-align: center" placeholder="81"/><br/>
+                    </td>
+                    <td>
+                        <input style="width: 60%; text-align: center" placeholder="91"/><br/>
+                    </td>
+                    <td>89</td>
+                    <td>100</td>
+                    <td>94</td>
+                    <td>89</td>
+                    <td>87</td>
+                </tr>
+                <tr>
+                    <td> C-3PO</td>
+                    <td>87</td>
+                    <td>91</td>
+                    <td>88</td>
+                    <td>84</td>
+                    <td>89</td>
+                    <td>100</td>
+                    <td>94</td>
+                    <td>89</td>
+                    <td>87</td>
+                </tr>
+                <tr>
+                    <td> Yoda</td>
+                    <td>87</td>
+                    <td>98</td>
+                    <td>90</td>
+                    <td>89</td>
+                    <td>100</td>
+                    <td>84</td>
+                    <td>94</td>
+                    <td>89</td>
+                    <td>87</td>
+                </tr>
+                <tr>
+                    <td> Admiral</td>
+                    <td>87</td>
+                    <td>98</td>
+                    <td>90</td>
+                    <td>92</td>
+                    <td>100</td>
+                    <td>99</td>
+                    <td>94</td>
+                    <td>
+                        <input style="width: 60%; text-align: center" placeholder="90"/></br>
+                    </td>
+                    <td>89</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+
+
+</html>

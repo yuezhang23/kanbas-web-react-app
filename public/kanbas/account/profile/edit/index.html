@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> </head>
+<base target="_parent">
+<body>
+    <h1 id="info-name"> Yue Zhang's Profile </h1>
+    <form id="edit-name-info" onchange="editBioAndName()">
+        <label for="p-name"> Name: * </label>
+        <input id="p-name" value = "Yue Zhang"/>
+        <label for="pron"> Pronouns:  </label>
+        <select style="text-align: center" id="pron">
+            <option >None</option>
+            <option > Mr. </option>
+            <option > Mrs. </option>
+            <option > Ms. </option>
+        </select>
+        <p>
+            <label for="p-title"> Title: </label>
+            <input id="p-title"/><br/>
+        </p>
+    </form>
+
+    <h2> Contact </h2>
+
+    No registered services, you can add some on the
+    <a href="/Kanbas/Account/Settings/index.html">settings</a>
+    page.
+
+    <h2> Biography </h2>
+    <p id = "bio-info"> </p>
+    <p>
+        <label for="edit-bio-info"></label><textarea id="edit-bio-info" onchange="editBioAndName()" cols="50" rows="4"> </textarea>
+    </p>
+
+    <h2> Links </h2>
+        <a href="#"> YouTube  </a> Links to an external site.
+    <p> </p>
+    <table id="edit-tb">
+        <thead > </thead>
+        <tbody>
+        <tr style="text-align: center">
+            <td>
+                <b> Title</b>
+            </td>
+            <td>
+                <b> URL </b>
+            </td>
+        </tr>
+        <tr>
+            <td >
+                <label for="hw-t"> </label>
+                <input id="hw-t" value = "YouTube"/>
+            </td>
+            <td>
+                <label for="hw-url"></label>
+                <input id="hw-url" value = "http://www.youtube.com"/>
+            </td>
+            <td>
+                <a href="#">Remove</a>
+            </td>
+        </tr>
+        <tr>
+            <td id="button-tab" style="text-align: left">
+                <a href= "#"> <button> Add another link </button></a></br>
+                <a href="/Kanbas/Account/Profile/screen.html"><button>Cancel</button></a>
+                <a href="/Kanbas/Account/Profile/screen.html"><button>Save Profile</button></a>
+                <a href="#"><button>Edit Profile</button></a>
+                <a href="#"><button>Cancel Editing</button></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+<script>
+    function editBioAndName() {
+        const x = document.getElementById("p-name").value;
+        let y = document.getElementById("pron").value;
+        const z = document.getElementById("edit-bio-info").value;
+        if (y === "None") {
+            y = "";
+        }
+        document.getElementById("info-name").innerHTML = y+" "+x + "'s Profile";
+        document.getElementById("bio-info").innerHTML = z;
+        document.getElementById("wd-heading-profile").innerHTML = y+" "+x + "'s Profile";
+    }
+</script>
+</html>
