@@ -1,4 +1,3 @@
-
 const kanbasNavi = KanbasNavigation();
 const courseNavi = CourseNavigation();
 const accountNavi = AccountNavigation();
@@ -6,7 +5,7 @@ const courseSet = CourseSettings();
 
 function KanbasNavigation() {
     return `
-     <ul style="alignment: center">
+     <ul style="alignment: center; height: 100%">
         <li><a href="/Kanbas/Account/Profile/screen.html">Account</a></li>
         <li>
             <a href="/Kanbas/Dashboard/screen.html">Dashboard</a>
@@ -36,7 +35,7 @@ function KanbasNavigation() {
 }
 function CourseNavigation() {
     return `
-     <ul >
+     <ul style="alignment: center; height: 100%">
         <li><a href="/Kanbas/Courses/Home/screen.html" >
             Home</a></li>
         <li><a href="/Kanbas/Courses/Modules/screen.html">
@@ -77,7 +76,7 @@ function CourseNavigation() {
 
 function AccountNavigation() {
     return `
-    <ul>
+    <ul style="alignment: center; height: 100%">
             <li><a href="/Kanbas/Account/Profile/screen.html" >
                 Notification</a></li>
             <li><a href="/Kanbas/Account/Profile/screen.html" >
