@@ -2,10 +2,29 @@
 <html lang="en">
 <head>
     <script src = "/kanbas/navigation/index.js" > </script>
+    <link href="/libs/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/Kanbas/styles.css" />
+    <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+    <link rel="stylesheet" href="/Kanbas/Courses/Modules/index.css" />
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css" />
 </head>
-<body >
-    <script>
-        document.write(kanbasNavi);
-    </script>
+<body>
+<div class="row wd-modules">
+    <div class="col-1 d-none d-md-block ">
+        <script>
+            document.write(kanbasNavi);
+            document.getElementById('dr-nav-2').classList.add('wd-active');
+        </script>
+    </div>
+    <div class="col-11 p-5">
+        <div class="row mb-2 border-bottom">
+            <h1> Dashboard</h1>
+        </div>
+        <div class="row d-none d-md-block px-4">
+            <iframe class="ratio ratio-1x1" src = "/kanbas/dashboard/index.html"> </iframe>
+        </div>
+    </div>
+</div>
 </body>
 </html>
+

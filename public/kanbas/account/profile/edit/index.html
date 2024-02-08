@@ -1,87 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
-<head> </head>
+<html lang="en" id="dashboard-0">
+<head>
+    <script>
+        function editBioAndName() {
+            const x = document.getElementById("p-name").value;
+            let y = document.getElementById("pron").value;
+            const z = document.getElementById("edit-bio-info").value;
+            if (y === "None") {
+                y = "";
+            }
+            document.getElementById("info-name").innerHTML = y+" "+x + "'s Profile";
+            document.getElementById("bio-info").innerHTML = z;
+            document.getElementById("wd-heading-profile").innerHTML = y+" "+x + "'s Profile";
+        }
+    </script>
+    <script src = "/kanbas/navigation/index.js" > </script>
+    <link href="/libs/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+    <script src="/libs/bootstrap/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="/Kanbas/styles.css" />
+    <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+    <link rel="stylesheet" href="/Kanbas/Courses/Modules/index.css" />
+    <link rel="stylesheet" href="/Kanbas/Courses/Assignments/index.css" />
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css" />
+</head>
 <base target="_parent">
 <body>
-    <h1 id="info-name"> Yue Zhang's Profile </h1>
-    <form id="edit-name-info" onchange="editBioAndName()">
-        <label for="p-name"> Name: * </label>
-        <input id="p-name" value = "Yue Zhang"/>
-        <label for="pron"> Pronouns:  </label>
-        <select style="text-align: center" id="pron">
-            <option >None</option>
-            <option > Mr. </option>
-            <option > Mrs. </option>
-            <option > Ms. </option>
-        </select>
-        <p>
+<div class="col wd-modules pe-4">
+    <div class="row row-cols-1">
+        <div class="fs-4">
+            Yue Zhang's Profile
+            <a href="/kanbas/account/profile/edit/screen.html" class="btn btn-secondary p-1 rounded-1 float-end"
+               role="button"><i class="fa fa-pencil"></i> Edit profile</a>
+        </div>
+    </div>
+    <div class="row mt-3" onchange="editBioAndName()">
+        <div class="col-3">
+            <label for="p-name"> Name: * </label>
+            <input class="border" id="p-name" value = "Yue Zhang"/>
+        </div>
+        <div class="col-3">
+            <label for="pron"> Pronouns:  </label>
+            <select class="border"  id="pron">
+                <option >None</option>
+                <option > Mr. </option>
+                <option > Mrs. </option>
+                <option > Ms. </option>
+            </select>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <span class="d-flex">
             <label for="p-title"> Title: </label>
-            <input id="p-title"/><br/>
-        </p>
-    </form>
+            <input class="border " id="p-title"/><br/>
+        </span>
+    </div>
 
-    <h2> Contact </h2>
-
-    No registered services, you can add some on the
-    <a href="/kanbas/account/settings/index.html">settings</a>
-    page.
-
-    <h2> Biography </h2>
-    <p id = "bio-info"> </p>
-    <p>
-        <label for="edit-bio-info"></label><textarea id="edit-bio-info" onchange="editBioAndName()" cols="50" rows="4"> </textarea>
-    </p>
-
-    <h2> Links </h2>
-        <a href="#"> YouTube  </a> Links to an external site.
-    <p> </p>
-    <table id="edit-tb">
-        <thead > </thead>
-        <tbody>
-        <tr style="text-align: center">
-            <td>
-                <b> Title</b>
-            </td>
-            <td>
-                <b> URL </b>
-            </td>
-        </tr>
-        <tr>
-            <td >
-                <label for="hw-t"> </label>
-                <input id="hw-t" value = "YouTube"/>
-            </td>
-            <td>
-                <label for="hw-url"></label>
-                <input id="hw-url" value = "http://www.youtube.com"/>
-            </td>
-            <td>
-                <a href="#">Remove</a>
-            </td>
-        </tr>
-        <tr>
-            <td id="button-tab" style="text-align: left">
-                <a href= "#"> <button> Add another link </button></a></br>
-                <a href="/kanbas/account/profile/screen.html"><button>Cancel</button></a>
-                <a href="/kanbas/account/profile/screen.html"><button>Save Profile</button></a>
-                <a href="#"><button>Edit Profile</button></a>
-                <a href="#"><button>Cancel Editing</button></a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        <span class="fs-4 my-4"> Contact</span>
+    </div>
+    <div class="row">
+                <span>No registered services, you can add some on the <a href="#">settings</a> page.
+                </span>
+    </div>
+    <div class="row">
+        <span class="fs-4 my-4">  Biography</span>
+        <textarea id ="bio-info" class="row-4 col-8 border btn-secondary">A cs-align graduate student and a former civil engineer. Over 6 years of work experience in the building industry of China. Look for a position shift into tech industry. </textarea>
+    </div>
+    <div class="row">
+        <span class="fs-4 my-4"> Links</span>
+    </div>
+    <div class="row">
+        <ul class="d-flex flex-row ms-2 list-group">
+            <li class="list-group-item">
+                <a class="text-decoration-underline" href="http://www.youtube.com"> YouTube</a>
+            </li>
+            <li class="list-group-item ms-2 text-decoration-none" >
+                <a href="otherpage.html" > <i class="fa fa-external-link"> </i> Links to an external site.</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row text-md-center mt-4">
+        <div class="col-2 text-md-center fs-5">Title</div>
+        <div class="col-3 text-md-center fs-5"> URL</div>
+    </div>
+    <div class="row my-2">
+        <span class="d-flex float-start">
+            <input class="border me-2" id="hw-t" value = "YouTube"/>
+            <i class="fa fa-arrow-right me-2"></i>
+            <label for="hw-url"></label>
+            <input class="border me-2" id="hw-url" value = "http://www.youtube.com"/>
+            <a href="#">Remove</a>
+        </span>
+    </div>
+    <div class="row my-2">
+        <span class="d-flex">
+            <button class="btn btn-secondary p-1 rounded-1">Add another link</button>
+        </span>
+    </div>
+    <div class="row my-2">
+        <span class="d-flex">
+          <a href="/kanbas/account/profile/screen.html" class="btn btn-secondary p-1 rounded-1 me-2"
+             role="button"><i class="fa fa-pencil"></i>Cancel Editing</a>
+          <a href="/kanbas/account/profile/screen.html" class="btn btn-secondary p-1 rounded-1"
+             role="button"><i class="fa fa-pencil"></i>Saving Profile</a>
+        </span>
+    </div>
+    <div class="row my-2">
+        <span class="d-flex">
+            <button class="btn btn-secondary p-1 rounded-1 me-2">Editing Profile</button>
+            <a href="/kanbas/account/profile/screen.html" class="btn btn-secondary p-1 rounded-1"
+               role="button"><i class="fa fa-pencil"></i>Cancel Editing</a>
+        </span>
+    </div>
+</div>
 </body>
-<script>
-    function editBioAndName() {
-        const x = document.getElementById("p-name").value;
-        let y = document.getElementById("pron").value;
-        const z = document.getElementById("edit-bio-info").value;
-        if (y === "None") {
-            y = "";
-        }
-        document.getElementById("info-name").innerHTML = y+" "+x + "'s Profile";
-        document.getElementById("bio-info").innerHTML = z;
-        document.getElementById("wd-heading-profile").innerHTML = y+" "+x + "'s Profile";
-    }
-</script>
 </html>

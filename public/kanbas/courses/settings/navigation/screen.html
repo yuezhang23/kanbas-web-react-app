@@ -1,43 +1,57 @@
 <!DOCTYPE html>
-<style>
-    html, body{
-        height :100%
-    }
-</style>
 <html lang="en">
 <head>
     <script src = "/kanbas/navigation/index.js" > </script>
+    <link href="/libs/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/Kanbas/styles.css" />
+    <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+    <link rel="stylesheet" href="/Kanbas/Courses/Modules/index.css" />
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css" />
 </head>
 <body>
-<table style="width: 100%; height: 100%">
-    <thead> </thead>
-    <tbody>
-    <tr>
-        <style>
-            td {
-                vertical-align: top;
-                text-align: left
-            }
-        </style>
-        <td  style="width: 15%">
-            <script >
-                document.write(kanbasNavi);
-            </script>
-        </td >
-        <td  style="width: 15%">
-            <script >
-                document.write(courseNavi);
-            </script>
-        </td>
-        <td>
-            <h3> Settings</h3>
-            <script >
-                document.write(courseSet);
-            </script>
-            <iframe style="border:0; width: 100%; height:100%" src = "/kanbas/courses/settings/navigation/index.html"> </iframe>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<div class="row wd-modules">
+    <div class="col-1 d-none d-md-block ">
+        <script>
+            document.write(kanbasNavi);
+            document.getElementById('dr-nav-3').classList.add('wd-active');
+        </script>
+    </div>
+    <div class="col-11">
+        <div class="row row-cols-1 py-3 ps-4 border-bottom">
+                <span class="d-flex flex-row">
+                    <i class="fa fa-lightbulb-o fs-4 me-2" style="color: #dc3545"></i>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">CS5610.36915.202430</a></li>
+                            <li class="breadcrumb-item"><a href="#">Settings</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Navigation</li>
+                        </ol>
+                    </nav>
+                </span>
+        </div>
+        <div class="row">
+            <div class="col-2 d-none d-md-block">
+                <script>
+                    document.write(courseNavi);
+                    document.getElementById('dr-nav-3-17').classList.add('wd-active');
+                </script>
+            </div>
+            <div class="col-10 pt-3">
+                <div class="row">
+                    <script >
+                        document.write(courseSet);
+                        document.getElementById("dr-nav-3-17-3").classList.add('active')
+                    </script>
+                </div>
+                <div class="row">
+                    <div class="ratio ratio-1x1 min-vh-100">
+                        <iframe class="h-100" src ="/kanbas/courses/settings/navigation/index.html" > </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
+

@@ -1,231 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head></head>
+    <head>
+        <script src = "/kanbas/navigation/index.js"> </script>
+        <link href="/libs/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+        <script src="/libs/bootstrap/bootstrap.bundle.js"></script>
+        <link rel="stylesheet" href="/Kanbas/styles.css" />
+        <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+        <link rel="stylesheet" href="/Kanbas/Courses/Modules/index.css" />
+        <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css" />
+    </head>
     <body>
-        <style>
-            span {
-                display: flex;
-            }
-        </style>
-        <span >
-            <label for="grade-book">  </label><br/>
-            <select id="grade-book">
-                <option value="Gradebook">Gradebook</option>
-                <option value="Other">Other</option>
-            </select>
-            <button type="button"> Import </button>
-            <label for="export">  </label><br/>
-            <select id="export">
-                <option value="Export">Export</option>
-            </select>
-            <button type="button"> Configure </button>
-        </span>
-
-        <form id="text-fields">
-            <label for="st-name">
-                <p>
-                    <h3> Student Names </h3>
-                </p>
-            </label>
-            <input id="st-name" placeholder="Search Students"/><br/>
-
-            <label for="hw-name">
-                <p>
-                    <h3>Assignment Names</h3>
-                </p>
-            </label>
-            <input id="hw-name" placeholder="Search Assignments"/><br/>
-        </form>
-        <p>
-            <button type="button"> Apply Filters </button>
-        </p>
-        <table>
-            <style>
-                table, th, td {
-                    border: 1px solid grey;
-                    text-align: center;
-                    table-layout: fixed;
-                    width: 90px;
-                }
-            </style>
-            <thead>
-                <tr>
-                    <td>Student Name </td>
-                    <td>A1 SETUP Out of 100 </td>
-                    <td>A2 HTML Out of 100 </td>
-                    <td>A3 CSS Out of 100</td>
-                    <td>A4 BOOTSTARP Out of 100</td>
-                    <td>A5 JAVASCRIPT Out of 100</td>
-                    <td>A6 REACT Out of 100</td>
-                    <td>A7 REDUX Out of 100</td>
-                    <td>A8 NODE Out of 100</td>
-                    <td>A9 MONGO Out of 100</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td> Alice Wonderland</td>
-                    <td>98</td>
-                    <td>89</td>
-                    <td>87</td>
-                    <td>90</td>
-                    <td>89</td>
-                    <td>94</td>
-                    <td>88</td>
-                    <td>87</td>
-                    <td>100</td>
-                </tr>
-                <tr>
-                    <td> Prince Leia</td>
-                    <td>98</td>
-                    <td>89</td>
-                    <td>87</td>
-                    <td>90</td>
-                    <td>89</td>
-                    <td>94</td>
-                    <td >
-                        <input style="width: 60%; text-align: center" placeholder="85"/><br/>
-                    </td>
-                    <td>87</td>
-                    <td>100</td>
-                </tr>
-                <tr>
-                    <td> Luke Skywalker</td>
-                    <td >
-                        <input style="width: 60%; text-align: center" placeholder="95"/><br/>
-                    </td>
-                    <td>87</td>
-                    <td>98</td>
-                    <td>90</td>
-                    <td>89</td>
-                    <td>89</td>
-                    <td>100</td>
-                    <td>94</td>
-                    <td>87</td>
-                </tr>
-                <tr>
-                    <td> Han Solo</td>
-                    <td>90</td>
-                    <td>87</td>
-                    <td>98</td>
-                    <td>89</td>
-                    <td>100</td>
-                    <td>94</td>
-                    <td>89</td>
-                    <td >
-                        <input style="width: 60%; text-align: center" placeholder="92"/><br/>
-                    </td>
-                    <td>87</td>
-                </tr>
-                <tr>
-                    <td> Lando Calresian</td>
-                    <td>87</td>
-                    <td>98</td>
-                    <td >
-                        <input style="width: 60%; text-align: center" placeholder="87"/><br/>
-                    </td>
-                    <td>90</td>
-                    <td>89</td>
-                    <td>100</td>
-                    <td>94</td>
-                    <td>89</td>
-                    <td>87</td>
-                </tr>
-                <tr>
-                    <td> Boba Fet</td>
-                    <td>87</td>
-                    <td>98</td>
-                    <td>87</td>
-                    <td>90</td>
-                    <td>89</td>
-                    <td>100</td>
-                    <td>94</td>
-                    <td>89</td>
-                    <td>87</td>
-                </tr>
-                <tr>
-                    <td> Darth Vader</td>
-                    <td>87</td>
-                    <td>98</td>
-                    <td>90</td>
-                    <td>89</td>
-                    <td>100</td>
-                    <td>94</td>
-                    <td >
-                        <input style="width: 60%; text-align: center" placeholder="89"/><br/>
-                    </td>
-                    <td>89</td>
-                    <td>87</td>
-                </tr>
-                <tr>
-                    <td> Obi-Wan Kenobi</td>
-                    <td >
-                        <input style="width: 60%; text-align: center" placeholder="91"/><br/>
-                    </td>
-                    <td>87</td>
-                    <td>98</td>
-                    <td>90</td>
-                    <td>89</td>
-                    <td>100</td>
-                    <td>94</td>
-                    <td>89</td>
-                    <td>87</td>
-                </tr>
-                <tr>
-                    <td> R2-D2</td>
-                    <td>87</td>
-                    <td>98</td>
-                    <td >
-                        <input style="width: 60%; text-align: center" placeholder="81"/><br/>
-                    </td>
-                    <td>
-                        <input style="width: 60%; text-align: center" placeholder="91"/><br/>
-                    </td>
-                    <td>89</td>
-                    <td>100</td>
-                    <td>94</td>
-                    <td>89</td>
-                    <td>87</td>
-                </tr>
-                <tr>
-                    <td> C-3PO</td>
-                    <td>87</td>
-                    <td>91</td>
-                    <td>88</td>
-                    <td>84</td>
-                    <td>89</td>
-                    <td>100</td>
-                    <td>94</td>
-                    <td>89</td>
-                    <td>87</td>
-                </tr>
-                <tr>
-                    <td> Yoda</td>
-                    <td>87</td>
-                    <td>98</td>
-                    <td>90</td>
-                    <td>89</td>
-                    <td>100</td>
-                    <td>84</td>
-                    <td>94</td>
-                    <td>89</td>
-                    <td>87</td>
-                </tr>
-                <tr>
-                    <td> Admiral</td>
-                    <td>87</td>
-                    <td>98</td>
-                    <td>90</td>
-                    <td>92</td>
-                    <td>100</td>
-                    <td>99</td>
-                    <td>94</td>
-                    <td>
-                        <input style="width: 60%; text-align: center" placeholder="90"/></br>
-                    </td>
-                    <td>89</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="wd-modules px-2">
+            <div class="mx-2 text-end">
+                <span class="dropdown">
+                    <a class="btn btn-outline-secondary border rounded-0 p-1 dropdown-toggle" href="#" role="button" id="dropdownMenuImpt"
+                       data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-sign-in"></i> Import</a>
+                    <span class="dropdown-menu" aria-labelledby="dropdownMenuImpt">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </span>
+                </span>
+                <span class="dropdown">
+                    <a class="btn btn-outline-secondary border rounded-0 p-1 dropdown-toggle" href="#" role="button" id="dropdownMenuExpt"
+                       data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-external-link"></i> Export
+                    </a>
+                    <span class="dropdown-menu" aria-labelledby="dropdownMenuExpt">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </span>
+                </span>
+                <button class="btn btn-secondary btn-lg">
+                    <i class="fa fa-gear p-1"></i>
+                </button>
+            </div>
+            <div class="d-flex form-group p-2 mt-2">
+                <div class="col from-group my-1 px-1">
+                    <label class="fw-bold m-2" for="agCheck">Student Names</label>
+                    <select class="form-select border rounded-1 px-2 form-control" id="agCheck">
+                        <option >Search Students</option>
+                        <option >Student ID</option>
+                    </select>
+                </div>
+                <div class="col from-group my-1 px-1">
+                    <label class="fw-bold m-2" for="gdCheck">Assignment Names</label>
+                    <select class="form-select border rounded-1 px-2 form-control" id="gdCheck">
+                        <option >Search Assignments</option>
+                        <option >Other</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mx-2">
+                <button class="col btn btn-light border rounded-0 p-1 ms-1 my-3">
+                    <i class="fa fa-filter"></i> Apply Filters </button>
+            </div>
+        </div>
+        <div class="table-responsive px-4 d-flex flex-fill">
+            <table class="table table-bordered text-center table-striped">
+                <thead>
+                    <tr class="align-middle">
+                        <th scope="col" class="col-2"> Student Name </th>
+                        <th scope="col" class="col-1 small">A1 SETUP <br> Out of 100 </th>
+                        <th scope="col" class="col-1 small">A2 HTML <br> Out of 100 </th>
+                        <th scope="col" class="col-1 small">A3 CSS <br> Out of 100</th>
+                        <th scope="col" class="col-1 small">A4 BOOTSTARP <br> Out of 100</th>
+                        <th scope="col" class="col-1 small">A5 JAVASCRIPT <br> Out of 100</th>
+                        <th scope="col" class="col-1 small">A6 REACT <br> Out of 100</th>
+                        <th scope="col" class="col-1 small">A7 REDUX <br> Out of 100</th>
+                        <th scope="col" class="col-1 small">A8 NODE <br> Out of 100</th>
+                        <th scope="col" class="col-1 small">A9 MONGO <br> Out of 100</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="wd-fg-red"> Alice Wonderland</td>
+                        <td>98.0 %</td>
+                        <td>89.0 %</td>
+                        <td>87.0 %</td>
+                        <td>90.0 %</td>
+                        <td>89.0 %</td>
+                        <td>94.0 %</td>
+                        <td>88.0 %</td>
+                        <td>87.0 %</td>
+                        <td>100.0 %</td>
+                    </tr>
+                    <tr>
+                        <td> Prince Leia</td>
+                        <td>98.0 %</td>
+                        <td>89.0 %</td>
+                        <td>87.0 %</td>
+                        <td>90.0 %</td>
+                        <td>89.0 %</td>
+                        <td>94.0 %</td>
+                        <td >
+                            <div class="wd-modules input-group">
+                                <input type="text" class="text-end form-control"
+                                       placeholder="100.0" value="90.2 %"/>
+                                <span class="input-append input-group-text ms-1"><i class="fa fa-edit"></i></span>
+                            </div>
+                        </td>
+                        <td>87.0 %</td>
+                        <td>100.0 %</td>
+                    </tr>
+                    <tr>
+                        <td > Luke Skywalker</td>
+                        <td>
+                            <div class="wd-modules input-group">
+                                <input type="text" class="text-end form-control"
+                                       placeholder="100.0%" value="85.0 %"/>
+                                <span class="input-append input-group-text ms-1"><i class="fa fa-edit"></i></span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="wd-modules input-group">
+                                <input type="text" class="text-end form-control"
+                                       placeholder="100.0%" value="95.0 %"/>
+                                <span class="input-append input-group-text ms-1"><i class="fa fa-edit"></i></span>
+                            </div>
+                        </td>
+                        <td>98.0 %</td>
+                        <td>90.0 %</td>
+                        <td>89.0 %</td>
+                        <td>89.0 %</td>
+                        <td>100.0 %</td>
+                        <td>94.0 %</td>
+                        <td>87.0 %</td>
+                    </tr>
+                    <tr>
+                        <td> Han Solo</td>
+                        <td>90.0 %</td>
+                        <td>87.0 %</td>
+                        <td>98.0 %</td>
+                        <td>89.0 %</td>
+                        <td>100.0 %</td>
+                        <td>94.0 %</td>
+                        <td>89.0 %</td>
+                        <td >
+                            <div class="wd-modules input-group px-1">
+                                <input type="text" class="text-end form-control"
+                                       placeholder="100.0" value="92.0%"/>
+                                <span class="input-append input-group-text ms-1"><i class="fa fa-edit"></i></span>
+                            </div>
+                        </td>
+                        <td>87.0 %</td>
+                    </tr>
+                    <tr>
+                        <td> Lando Calresian</td>
+                        <td>87.0 %</td>
+                        <td>98.0 %</td>
+                        <td >
+                            <div class="wd-modules input-group">
+                                <input type="text" class="text-end form-control"
+                                       placeholder="100.0" value="87.0 %"/>
+                                <span class="input-append input-group-text ms-1"><i class="fa fa-edit"></i></span>
+                            </div>
+                        </td>
+                        <td>90.0 %</td>
+                        <td>89.0 %</td>
+                        <td>100.0 %</td>
+                        <td>94.0 %</td>
+                        <td>89.0 %</td>
+                        <td>87.0 %</td>
+                    </tr>
+                    <tr>
+                        <td> Boba Fet</td>
+                        <td>87.0 %</td>
+                        <td>98.0 %</td>
+                        <td>87.0 %</td>
+                        <td>90.0 %</td>
+                        <td>89.0 %</td>
+                        <td>100.0 %</td>
+                        <td>94.0 %</td>
+                        <td>89.0 %</td>
+                        <td>87.0 %</td>
+                    </tr>
+                    <tr>
+                        <td > Darth Vader</td>
+                        <td>87.0 %</td>
+                        <td>98.0 %</td>
+                        <td>90.0 %</td>
+                        <td>89.0 %</td>
+                        <td>100.0 %</td>
+                        <td>94.0 %</td>
+                        <td >
+                            <div class="wd-modules input-group">
+                                <input type="text" class="text-end form-control"
+                                       placeholder="100.0" value="89.0 %"/>
+                                <span class="input-append input-group-text ms-1"><i class="fa fa-edit"></i></span>
+                            </div>
+                        </td>
+                        <td>89.0 %</td>
+                        <td>87.0 %</td>
+                    </tr>
+                    <tr>
+                        <td> Obi-Wan Kenobi</td>
+                        <td >
+                            <div class="wd-modules input-group">
+                                <input type="text" class="text-end form-control"
+                                       placeholder="100.0" value="91.0 %"/>
+                                <span class="input-append input-group-text ms-1"><i class="fa fa-edit"></i></span>
+                            </div>
+                        </td>
+                        <td>87.0 %</td>
+                        <td>98.0 %</td>
+                        <td>90.0 %</td>
+                        <td>89.0 %</td>
+                        <td>100.0 %</td>
+                        <td>94.0 %</td>
+                        <td>89.0 %</td>
+                        <td>87.0 %</td>
+                    </tr>
+                    <tr>
+                        <td> R2-D2</td>
+                        <td>87.0 %</td>
+                        <td>98.0 %</td>
+                        <td >
+                            <div class="wd-modules input-group">
+                                <input type="text" class="text-end form-control"
+                                       placeholder="100.0" value="81.0 %"/>
+                                <span class="input-append input-group-text ms-1"><i class="fa fa-edit"></i></span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="wd-modules input-group">
+                                <input type="text" class="text-end form-control"
+                                       placeholder="100.0" value="90.0 %"/>
+                                <span class="input-append input-group-text ms-1"><i class="fa fa-edit"></i></span>
+                            </div>
+                        </td>
+                        <td>89.0 %</td>
+                        <td>100.0 %</td>
+                        <td>94.0 %</td>
+                        <td>89.0 %</td>
+                        <td>87.0 %</td>
+                    </tr>
+                    <tr>
+                        <td> C-3PO</td>
+                        <td>87.0 %</td>
+                        <td>91.0 %</td>
+                        <td>88.0 %</td>
+                        <td>84.0 %</td>
+                        <td>89.0 %</td>
+                        <td>100.0 %</td>
+                        <td>94.0 %</td>
+                        <td>89.0 %</td>
+                        <td>87.0 %</td>
+                    </tr>
+                    <tr>
+                        <td> Yoda</td>
+                        <td>87.0 %</td>
+                        <td>98.0 %</td>
+                        <td>90.0 %</td>
+                        <td>89.0 %</td>
+                        <td>100.0 %</td>
+                        <td>84.0 %</td>
+                        <td>94.0 %</td>
+                        <td>89.0 %</td>
+                        <td>87.0 %</td>
+                    </tr>
+                    <tr>
+                        <td> Admiral</td>
+                        <td>87.0 %</td>
+                        <td>98.0 %</td>
+                        <td>90.0 %</td>
+                        <td>92.0 %</td>
+                        <td>100.0 %</td>
+                        <td>99.0 %</td>
+                        <td>94.0 %</td>
+                        <td>
+                            <div class="wd-modules input-group">
+                                <input type="text" class="text-end form-control"
+                                       placeholder="100.0" value="93.0 %"/>
+                                <span class="input-append input-group-text ms-1"><i class="fa fa-edit"></i></span>
+                            </div>
+                        </td>
+                        <td>89.0%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>

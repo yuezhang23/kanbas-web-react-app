@@ -1,118 +1,443 @@
 <!DOCTYPE html>
-<style>
-    html, body{
-        height :100%
-    }
-</style>
 <html lang="en">
-    <head></head>
+    <head>
+        <script src = "/kanbas/navigation/index.js" > </script>
+        <link href="/libs/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+        <script src="/libs/bootstrap/bootstrap.bundle.js"></script>
+        <link rel="stylesheet" href="/Kanbas/styles.css" />
+        <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+        <link rel="stylesheet" href="/Kanbas/Courses/Modules/index.css" />
+        <link rel="stylesheet" href="/Kanbas/Courses/Assignments/index.css" />
+        <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css" />
+    </head>
+    <base target="_parent">
     <body>
-        <span style="display: flex">
-            <form style="width: 35%" id="text-fields">
-                <label for="hw-name"> </label>
-                <input style="width: 100%;text-align: center; border: solid lightgrey"
-                       id="hw-name" placeholder="Search for Assignments"/><br/>
-            </form>
-            <button style="width: 10%" type="button"> Group </button>
-            <button style="width: 20%" type="button"> Assignment </button>
-            <label for="hw-date">  </label><br/>
-            <select style="width: 35%; text-align: center" id="hw-date">
-                <option value="Edit">Edit Assignment Date</option>
-            </select>
-        </span>
-        <hr >
+        <div class="col wd-modules px-4">
+                    <div class="row pb-2 border-bottom">
+                        <input class="border w-25 form-control ps-2" placeholder="Search for Assignment">
+                        <div class="col d-flex justify-content-end">
+                            <button class="btn btn-light rounded-1 p-1 me-1"> + Group </button>
+                            <button class="btn btn-danger rounded-1 p-1"> + Assignment</button>
+                            <div class="dropdown float-end ms-2">
+                                <button class="btn btn-outline-dark rounded-1 btn-lg px-2" type="button" data-bs-toggle="dropdown">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <div>
+                                    <ul class="dropdown-menu dropdown-menu-light mt-3 px-4 border rounded">
+                                        <a class="dropdown-item" href="/Kanbas/Courses/Assignments/edit/screen.html">
+                                        <i class="fa fa-pencil fa-1x"></i> Edit Assignment Date</a>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fa fa-toggle-right fa-1x"></i> Assignment Groups Weight</a>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fa fa-inbox fa-1x"></i> GradesScope 1.3</a>
+                                        <a class="dropdown-item " href="#">
+                                            <i class="fa fa-cloud fa-1x"></i> Commons Favorites</a>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row my-2">
+                        <ul class="list-group wd-modules">
+                            <li class="list-group-item p-0 rounded-0 mt-3">
+                                <div>
+                                    <i class="fa fa-tripadvisor"></i>
+                                    <h class="ms-2 fw-bold">Assignments</h>
+                                    <span class="float-end">
+                                        <h class="border rounded-5 p-1">40% of Total</h> +
+                                        <div class="dropdown float-end ms-2">
+                                            <button class="btn btn-outline-secondary" type="button" data-bs-toggle="dropdown">
+                                                <i class="fa fa-ellipsis-v"></i>
+                                            </button>
+                                            <div>
+                                                <ul class="dropdown-menu dropdown-menu-light mt-3 px-4 border rounded">
+                                                    <a class="dropdown-item" href="/Kanbas/Courses/Assignments/edit/screen.html">
+                                                        <i class="fa fa-pencil fa-1x"></i> Edit</a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-clock-o fa-1x"></i> Speed Grader</a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-angle-double-up fa-1x"></i> Duplicate</a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-remove fa-1x"></i> Delete</a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-arrow-circle-up fa-1x"></i> Move to...</a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-i-cursor fa-1x"></i> Send to...</a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-copy fa-1x"></i> Copy to...</a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-share fa-1x"></i> Share to Commons</a>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </span>
+                                </div>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex">
+                                        <div>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-book mx-4" style="color:#75b798"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <a class="fw-bold" href="/Kanbas/Courses/Assignments/edit/screen.html">A1 SETUP</a>
+                                            <p class="wd-fg-color-grey"> Week 0 SETUP - Week starting on Monday September 5th Module | <br> Due Sep18, 2022 at 11:59pm | 100ps
+                                            </p>
+                                        </div>
+                                        <span class="float-end">
+                                            <i class="fa fa-check-circle text-success"></i>
+                                            <i class="fa fa-ellipsis-v ms-2"></i>
+                                        </span>
+                                    </li>
+                                </ul>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex">
+                                        <div>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-book mx-4" style="color:#75b798"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <a class="fw-bold" href="/Kanbas/Courses/Assignments/edit/screen.html" >A2 HTML</a>
+                                            <p class="wd-fg-color-grey"> Week 1 HTML - Week starting on Monday September 12th Module | <br> Due Sep25, 2022 at 11:59pm | 100ps
+                                            </p>
+                                        </div>
+                                        <span class="float-end">
+                                            <i class="fa fa-check-circle text-success"></i>
+                                            <i class="fa fa-ellipsis-v ms-2"></i>
+                                        </span>
+                                    </li>
+                                </ul>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex">
+                                        <div>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-book mx-4" style="color:#75b798"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <a class="fw-bold" href="/Kanbas/Courses/Assignments/edit/screen.html">A3 CSS</a>
+                                            <p class="wd-fg-color-grey"> Week 2 CSS - Week starting on Monday September 19th Module | <br> Due Oct 2, 2022 at 11:59pm | 100ps
+                                            </p>
+                                        </div>
+                                        <span class="float-end">
+                                            <i class="fa fa-check-circle text-success"></i>
+                                            <i class="fa fa-ellipsis-v ms-2"></i>
+                                        </span>
+                                    </li>
+                                </ul>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex">
+                                        <div>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-book mx-4" style="color:#75b798"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <a class="fw-bold" href="/Kanbas/Courses/Assignments/edit/screen.html" >A4 BOOTSTRAP</a>
+                                            <p class="wd-fg-color-grey"> Week 3 Bootstrap - Week starting on Monday September 26th Module | <br> Due Oct 10, 2022 at 11:59pm | 100ps
+                                            </p>
+                                        </div>
+                                        <span class="float-end">
+                                            <i class="fa fa-check-circle text-success"></i>
+                                            <i class="fa fa-ellipsis-v ms-2"></i>
+                                        </span>
+                                    </li>
+                                </ul>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex">
+                                        <div>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-book mx-4" style="color:#75b798"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <a class="fw-bold" href="/Kanbas/Courses/Assignments/edit/screen.html" >A5 JAVASCRIPT</a>
+                                            <p class="wd-fg-color-grey"> Week 4 Javascript - Week starting on Monday October 3rd Module | <br> Due Oct 16, 2022 at 11:59pm | 100ps
+                                            </p>
+                                        </div>
+                                        <span class="float-end">
+                                            <i class="fa fa-check-circle text-success"></i>
+                                            <i class="fa fa-ellipsis-v ms-2"></i>
+                                        </span>
+                                    </li>
+                                </ul>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex">
+                                        <div>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-book mx-4" style="color:#75b798"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <a class="fw-bold" href="/Kanbas/Courses/Assignments/edit/screen.html" >A6 REACT</a>
+                                            <p class="wd-fg-color-grey"> Week 5 React& Routing - Week starting on Monday October 10th Module | <br> Due Oct 23, 2022 at 11:59pm | 100ps
+                                            </p>
+                                        </div>
+                                        <span class="float-end">
+                                            <i class="fa fa-check-circle text-success"></i>
+                                            <i class="fa fa-ellipsis-v ms-2"></i>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="list-group wd-modules">
+                            <li class="list-group-item p-0 rounded-0 mt-3">
+                                <div>
+                                    <i class="fa fa-tripadvisor"></i>
+                                    <h class="ms-2 fw-bold">Exams</h>
+                                    <span class="float-end">
+                                        <h class="border rounded-5 p-1">20% of Total</h> +
+                                        <div class="dropdown float-end ms-2">
+                                            <button class="btn btn-outline-secondary" type="button" data-bs-toggle="dropdown">
+                                                <i class="fa fa-ellipsis-v"></i>
+                                            </button>
+                                            <div>
+                                                <ul class="dropdown-menu dropdown-menu-light mt-3 px-4 border rounded">
+                                                    <a class="dropdown-item" href="/Kanbas/Courses/Assignments/edit/screen.html">
+                                                    <i class="fa fa-pencil fa-1x"></i> Edit</a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-clock-o fa-1x"></i> Speed Grader</a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-angle-double-up fa-1x"></i> Duplicate</a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-remove fa-1x"></i> Delete</a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-arrow-circle-up fa-1x"></i> Move to...</a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-i-cursor fa-1x"></i> Send to...</a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-copy fa-1x"></i> Copy to...</a>
+                                                    <a class="dropdown-item" href="#">
+                                                    <i class="fa fa-share fa-1x"></i> Share to Commons</a>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </span>
+                                </div>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex">
+                                        <div>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-paperclip mx-4" style="color:#75b798"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <a class="fw-bold" href="/Kanbas/Courses/Assignments/edit/screen.html" >Midterm</a><br>
+                                            <a1 class="wd-fg-color-grey" href="/Kanbas/Courses/Assignments/edit/screen.html" >Multiple Modules</a1>
+                                            | Not available yet
+                                        </div>
+                                        <span class="float-end">
+                                            <i class="fa fa-check-circle text-success"></i>
+                                            <i class="fa fa-ellipsis-v ms-2"></i>
+                                        </span>
+                                    </li>
+                                </ul>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex">
+                                        <div>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-paperclip mx-4" style="color:#75b798"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <a class="fw-bold" href="/Kanbas/Courses/Assignments/edit/screen.html" >Final</a><br>
+                                            <a1 class="wd-fg-color-grey" href="/Kanbas/Courses/Assignments/edit/screen.html" >Multiple Modules</a1>
+                                            | Not available yet
+                                        </div>
+                                        <span class="float-end">
+                                            <i class="fa fa-check-circle text-success"></i>
+                                            <i class="fa fa-ellipsis-v ms-2"></i>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="list-group wd-modules">
+                            <li class="list-group-item p-0 rounded-0 mt-3">
+                                <div>
+                                    <i class="fa fa-tripadvisor"></i>
+                                    <h class="ms-2 fw-bold">Quizzes</h>
+                                    <span class="float-end">
+                                        <h class="border rounded-5 p-1">10% of Total</h> +
+                                        <div class="dropdown float-end ms-2">
+                                        <button class="btn btn-outline-secondary" type="button" data-bs-toggle="dropdown">
+                                            <i class="fa fa-ellipsis-v"></i>
+                                        </button>
+                                        <div>
+                                            <ul class="dropdown-menu dropdown-menu-light mt-3 px-4 border rounded">
+                                                <a class="dropdown-item" href="/Kanbas/Courses/Assignments/edit/screen.html">
+                                                <i class="fa fa-pencil fa-1x"></i> Edit</a>
+                                                <a class="dropdown-item" href="#">
+                                                    <i class="fa fa-clock-o fa-1x"></i> Speed Grader</a>
+                                                <a class="dropdown-item" href="#">
+                                                    <i class="fa fa-angle-double-up fa-1x"></i> Duplicate</a>
+                                                <a class="dropdown-item" href="#">
+                                                    <i class="fa fa-remove fa-1x"></i> Delete</a>
+                                                <a class="dropdown-item" href="#">
+                                                    <i class="fa fa-arrow-circle-up fa-1x"></i> Move to...</a>
+                                                <a class="dropdown-item" href="#">
+                                                    <i class="fa fa-i-cursor fa-1x"></i> Send to...</a>
+                                                <a class="dropdown-item" href="#">
+                                                    <i class="fa fa-copy fa-1x"></i> Copy to...</a>
+                                                <a class="dropdown-item" href="#">
+                                                    <i class="fa fa-share fa-1x"></i> Share to Commons</a>
+                                            </ul>
+                                        </div>
+                                        </div>
+                                    </span>
+                                </div>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex">
+                                        <div>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-rocket mx-4" style="color:#75b798"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <a class="fw-bold" href="/Kanbas/Courses/Assignments/edit/screen.html" >Q1 HTML</a><br>
+                                            <a1 class="wd-fg-color-grey" href="/Kanbas/Courses/Assignments/edit/screen.html" >Multiple Modules</a1>
+                                            | Not available yet
+                                        </div>
+                                        <span class="float-end">
+                                            <i class="fa fa-check-circle text-success"></i>
+                                            <i class="fa fa-ellipsis-v ms-2"></i>
+                                        </span>
+                                    </li>
+                                </ul>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex">
+                                        <div>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-rocket mx-4" style="color:#75b798"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <a class="fw-bold" href="/Kanbas/Courses/Assignments/edit/screen.html" >Q2 CSS</a><br>
+                                            <a1 class="wd-fg-color-grey" href="/Kanbas/Courses/Assignments/edit/screen.html" >Multiple Modules</a1>
+                                            | Not available yet
+                                        </div>
+                                        <span class="float-end">
+                                            <i class="fa fa-check-circle text-success"></i>
+                                            <i class="fa fa-ellipsis-v ms-2"></i>
+                                        </span>
+                                    </li>
+                                </ul>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex">
+                                        <div>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-rocket mx-4" style="color:#75b798"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <a class="fw-bold" href="/Kanbas/Courses/Assignments/edit/screen.html" >Q3 JS</a><br>
+                                            <a1 class="wd-fg-color-grey" href="/Kanbas/Courses/Assignments/edit/screen.html" >Multiple Modules</a1>
+                                            | Not available yet
+                                        </div>
+                                        <span class="float-end">
+                                            <i class="fa fa-check-circle text-success"></i>
+                                            <i class="fa fa-ellipsis-v ms-2"></i>
+                                        </span>
+                                    </li>
+                                </ul>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex">
+                                        <div>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-rocket mx-4" style="color:#75b798"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <a class="fw-bold" href="/Kanbas/Courses/Assignments/edit/screen.html" >Q4 NODE</a><br>
+                                            <a1 class="wd-fg-color-grey" href="/Kanbas/Courses/Assignments/edit/screen.html" >Multiple Modules</a1>
+                                            | Not available yet
+                                        </div>
+                                        <span class="float-end">
+                                            <i class="fa fa-check-circle text-success"></i>
+                                            <i class="fa fa-ellipsis-v ms-2"></i>
+                                        </span>
+                                    </li>
+                                </ul>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex">
+                                        <div>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-rocket mx-4" style="color:#75b798"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <a class="fw-bold" href="/Kanbas/Courses/Assignments/edit/screen.html" >Q5 REACT</a><br>
+                                            <a1 class="wd-fg-color-grey" href="/Kanbas/Courses/Assignments/edit/screen.html" >Multiple Modules</a1>
+                                            | Not available yet
+                                        </div>
+                                        <span class="float-end">
+                                            <i class="fa fa-check-circle text-success"></i>
+                                            <i class="fa fa-ellipsis-v ms-2"></i>
+                                        </span>
+                                    </li>
+                                </ul>
 
-        <div style="display: flex">
-        <label for="edt"> <b> ASSIGNMENTS 40% Total </b> </label><br/>
-        <select style="text-align: left" id="edt">
-                <option value="Edit">Edit</option>
-                <option value="Edit">Speed Grader</option>
-                <option value="Edit">Duplicate</option>
-                <option value="Edit">Delete</option>
-                <option value="Edit">Move to...</option>
-                <option value="Edit">Send to...</option>
-                <option value="Edit">Copy to...</option>
-                <option value="Edit">Share to Commons</option>
-            </select>
+                            </li>
+                        </ul>
+                        <ul class="list-group wd-modules">
+                            <li class="list-group-item p-0 rounded-0 mt-3">
+                                <div>
+                                    <i class="fa fa-tripadvisor"></i>
+                                    <h class="ms-2 fw-bold">Project</h>
+                                    <span class="float-end">
+                                         <h class="border rounded-5 p-1">30% of Total</h> +
+                                         <div class="dropdown float-end ms-2">
+                                                <button class="btn btn-outline-secondary" type="button" data-bs-toggle="dropdown">
+                                                    <i class="fa fa-ellipsis-v"></i>
+                                                </button>
+                                                <div>
+                                                    <ul class="dropdown-menu dropdown-menu-light mt-3 px-4 border rounded">
+                                                        <a class="dropdown-item" href="/Kanbas/Courses/Assignments/edit/screen.html">
+                                                        <i class="fa fa-pencil fa-1x"></i> Edit</a>
+                                                        <a class="dropdown-item" href="#">
+                                                            <i class="fa fa-clock-o fa-1x"></i> Speed Grader</a>
+                                                        <a class="dropdown-item" href="#">
+                                                            <i class="fa fa-angle-double-up fa-1x"></i> Duplicate</a>
+                                                        <a class="dropdown-item" href="#">
+                                                            <i class="fa fa-remove fa-1x"></i> Delete</a>
+                                                        <a class="dropdown-item" href="#">
+                                                            <i class="fa fa-arrow-circle-up fa-1x"></i> Move to...</a>
+                                                        <a class="dropdown-item" href="#">
+                                                            <i class="fa fa-i-cursor fa-1x"></i> Send to...</a>
+                                                        <a class="dropdown-item" href="#">
+                                                            <i class="fa fa-copy fa-1x"></i> Copy to...</a>
+                                                        <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-share fa-1x"></i> Share to Commons</a>
+                                                    </ul>
+                                                </div>
+                                         </div>
+                                    </span>
+                                </div>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex">
+                                        <div>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-ellipsis-v"></i>
+                                            <i class="fa fa-building mx-4" style="color:#75b798"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <a class="fw-bold" href="/Kanbas/Courses/Assignments/edit/screen.html" >Project</a><br>
+                                            <a1 class="wd-fg-color-red" href="/Kanbas/Courses/Assignments/edit/screen.html" >Multiple Modules</a1>
+                                            | Not available yet
+                                        </div>
+                                        <span class="float-end">
+                                            <i class="fa fa-check-circle text-success"></i>
+                                            <i class="fa fa-ellipsis-v ms-2"></i>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+            </div>
         </div>
-        <ul>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">A1-ENV+HTML</a></li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">Multiple Modules</a> | Not available yet</li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">A2-CSS+ BOOTSTRAP</a></li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">Multiple Modules</a> | Not available yet</li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">A3-JS+REACT</a></li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">Multiple Modules</a> | Not available yet</li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">A4-STATE+REDUX</a></li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">Multiple Modules</a> | Not available yet</li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">A5-NODE + SESSION</a></li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">Multiple Modules</a> | Not available yet</li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">A6-MONGO + MONGOOSE</a></li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">Multiple Modules</a> | Not available yet</li>
-        </ul>
-
-        <div style="display: flex">
-            <label for="qz-edt"> <b> QUIZZES 10% Total </b> </label><br/>
-            <select style="text-align: left;" id="qz-edt">
-                <option value="Edit">Edit</option>
-                <option value="Edit">Speed Grader</option>
-                <option value="Edit">Duplicate</option>
-                <option value="Edit">Delete</option>
-                <option value="Edit">Move to...</option>
-                <option value="Edit">Send to...</option>
-                <option value="Edit">Copy to...</option>
-                <option value="Edit">Share to Commons</option>
-            </select>
-        </div>
-        <ul>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">Q1-HTML</a></li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">Multiple Modules</a> | Not available yet</li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">Q2-CSS </a></li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">Multiple Modules</a> | Not available yet</li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">Q3-JS+ES6</a></li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">Multiple Modules</a> | Not available yet</li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">Q4-NODE</a></li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">Multiple Modules</a> | Not available yet</li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">Q5-MONGO </a></li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">Multiple Modules</a> | Not available yet</li>
-        </ul>
-
-        <div style="display: flex">
-            <label for="ex-edt"> <b> EXAMS 20% Total </b> </label><br/>
-            <select style="text-align: left;" id="ex-edt">
-                <option value="Edit">Edit</option>
-                <option value="Edit">Speed Grader</option>
-                <option value="Edit">Duplicate</option>
-                <option value="Edit">Delete</option>
-                <option value="Edit">Move to...</option>
-                <option value="Edit">Send to...</option>
-                <option value="Edit">Copy to...</option>
-                <option value="Edit">Share to Commons</option>
-            </select>
-        </div>
-        <ul>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">Midterm</a></li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">Multiple Modules</a> | Not available yet</li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">Final </a></li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">Multiple Modules</a> | Not available yet</li>
-        </ul>
-
-        <div style="display: flex">
-            <label for="p-edt"> <b> PROJECTS 30% Total </b> </label><br/>
-            <select style="text-align: left;" id="p-edt">
-                <option value="Edit">Edit</option>
-                <option value="Edit">Speed Grader</option>
-                <option value="Edit">Duplicate</option>
-                <option value="Edit">Delete</option>
-                <option value="Edit">Move to...</option>
-                <option value="Edit">Send to...</option>
-                <option value="Edit">Copy to...</option>
-                <option value="Edit">Share to Commons</option>
-            </select>
-        </div>
-        <ul>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">Project</a></li>
-            <li>  <a href="/Kanbas/Courses/Assignments/edit/index.html">Multiple Modules</a> | Not available yet</li>
-        </ul>
     </body>
 </html>
 

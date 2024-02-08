@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src = "/kanbas/navigation/index.js" > </script>
+    <link href="/libs/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/Kanbas/styles.css" />
+    <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+    <link rel="stylesheet" href="/Kanbas/Courses/Modules/index.css" />
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css" />
+</head>
+<body>
+    <div class="row wd-modules">
+        <div class="col-1 d-none d-md-block">
+            <script>
+                document.write(kanbasNavi);
+                document.getElementById('dr-nav-2').classList.add('wd-active');
+            </script>
+        </div>
+        <div class="col-11 px-4">
+            <div class="row row-cols-1 border-bottom mx-4">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active fs-1" aria-current="page">Dashboard</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="ratio ratio-1x1 min-vh-100">
+                <iframe class="h-100" src = "/kanbas/dashboard/index.html" > </iframe>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
