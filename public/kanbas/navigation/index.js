@@ -9,10 +9,11 @@ function activeMod(ele) {
     }
 }
 
+
 function KanbasNavigation() {
     return `
    <ul class="wd-kanbas-navigation d-none d-md-block">
-      <li><a href="http://northeastern.edu" onclick="activeMod()">
+      <li><a href="http://northeastern.edu" >
         <img class="input-group-sm" src="/libs/images/n.png"></a>
        </li>
       <li id="dr-nav-1"><a href="/Kanbas/Account/Profile/screen.html" onclick="activeMod()">

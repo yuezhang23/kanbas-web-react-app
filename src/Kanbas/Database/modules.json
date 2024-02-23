@@ -1,0 +1,67 @@
+[
+  {
+    "_id": "M101",
+    "name": "Week0 INTRO",
+    "description": "History and Development of Web application",
+    "course": "RS101",
+    "lessons": [
+      {
+        "_id": "L101",
+        "name": "Learning Objectives",
+        "description": [{"pos": "01", "content": "Introduction to the course"},
+          {"pos": "02", "content" :"Learn what is Web Development"},
+          { "pos": "03", "content" :"Creating a developing environment"},
+          {"pos": "04", "content":"Creating a Web Application"},
+          {"pos": "05", "content":"Getting started with the 1st assignment"}],
+        "module": "M101"
+      },
+      {
+        "_id": "L102",
+        "name": "Readings",
+        "description": [
+          {"pos": "01", "content": "Full Stack Developer - Chapter 1 - Introduction"},
+          {"pos": "02", "content" :"Full Stack Developer - Chapter 2 - Creating User Interface with HTML"}
+        ],
+        "module": "M101"
+      },
+      {
+        "_id": "L103",
+        "name": "Slides",
+        "description": [{"pos": "01", "content": "Introduction to Web Development Links to an external site"},
+          {"pos": "02", "content" :"Creating an HTTP server with Node.js Links to an external site"},
+          { "pos": "03", "content" :"Creating a React Application Links to an external site"}],
+        "module": "M101"
+      }]
+  },
+  {
+    "_id": "M102",
+    "name": "Week1 HTML",
+    "description": "Approaches to HTML and CSS",
+    "course": "RS101",
+    "lessons": [
+      {
+        "_id": "L201",
+        "name": "Learning Objectives",
+        "description": [{"pos": "01", "content": "Learn how to create user interface with HTML"},
+          {"pos": "02", "content" :"Keep working on assignment 1"},
+          { "pos": "03", "content" :"Deploy assignment to Netlify"}],
+        "module": "M102"
+      },
+      {
+        "_id": "L202",
+        "name": "Readings",
+        "description": [{"pos": "01", "content": "Full Stack Developer - Chapter 1 - Introduction"},
+          {"pos": "02", "content" :"Full Stack Developer - Chapter 2 - Creating User Interface with HTML"}],
+        "module": "M102"
+      },
+      {
+        "_id": "L203",
+        "name": "Slides",
+        "description": [{"pos": "01", "content": "more Introduction to HTML"},
+          {"pos": "02", "content" :"Creating an Kanvas application using HTML"},
+          { "pos": "03", "content" :"Intro to HTML rendering and CSS"}],
+        "module": "M102"
+      }
+    ]
+  }
+]

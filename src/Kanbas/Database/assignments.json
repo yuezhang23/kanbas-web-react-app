@@ -1,0 +1,66 @@
+[{
+  "name": "ASSIGNMENTS",
+  "_id": "A001",
+  "catalog": [
+    { "_id": "A101", "title": "A1 - ENV + SETUP", "course": "RS101",
+      "description": "Week 0 SETUP - Week starting on Monday September 5th Module |\nDue Sep18, 2022 at 11:59pm | 100ps " },
+    { "_id": "A102", "title": "A2 - HTML", "course": "RS101",
+      "description": "Week 1 HTML - Week starting on Monday September 12th Module |\nDue Sep25, 2022 at 11:59pm | 100ps" },
+    { "_id": "A103", "title": "A3 - CSS", "course": "RS101" ,
+      "description": " Week 2 CSS - Week starting on Monday September 19th Module |\nDue Oct 2, 2022 at 11:59pm | 100ps"},
+    { "_id": "A104", "title": "A4 - BOOTSTRAP", "course": "RS101" ,
+      "description": "Week 3 Bootstrap - Week starting on Monday September 26th Module |\nDue Oct 10, 2022 at 11:59pm | 100ps "},
+    { "_id": "A105", "title": "A5 - JAVASCRIPT", "course": "RS101" ,
+      "description": " Week 4 Javascript - Week starting on Monday October 3rd Module |\nDue Oct 16, 2022 at 11:59pm | 100ps"},
+    { "_id": "A106", "title": "A6 - REACT", "course": "RS101",
+      "description": " Week 5 React& Routing - Week starting on Monday October 10th Module |\nDue Oct 23, 2022 at 11:59pm | 100ps" },
+    { "_id": "A107", "title": "A7 - REDUX", "course": "RS101",
+      "description": " Week 5 React& Routing - Week starting on Monday October 10th Module |\nDue Oct 23, 2022 at 11:59pm | 100ps" },
+    { "_id": "A108", "title": "A8 - NODE", "course": "RS101",
+      "description": " Week 5 React& Routing - Week starting on Monday October 10th Module |\nDue Oct 23, 2022 at 11:59pm | 100ps" },
+    { "_id": "A109", "title": "A9 - MONGO", "course": "RS101",
+      "description": " Week 5 React& Routing - Week starting on Monday October 10th Module |\nDue Oct 23, 2022 at 11:59pm | 100ps" },
+    { "_id": "A301", "title": "Structural Design Task", "course": "RS103" , "description": " "},
+    { "_id": "A302", "title": "Orbital Calculations", "course": "RS103", "description": " " },
+    { "_id": "A303", "title": "Systems Engineering Exam", "course": "RS103", "description": " " }]
+  },
+  {
+    "name": "QUIZZES",
+    "_id": "A002",
+    "catalog": [
+      { "_id": "Q101", "title": "Q1 - HTML", "course": "RS101", "description": "Multiple Modules | Not available yet" },
+      { "_id": "Q102", "title": "Q2 - CSS", "course": "RS101", "description": "Multiple Modules | Not available yet" },
+      { "_id": "Q103", "title": "Q3 - JS", "course": "RS101" , "description": "Multiple Modules | Not available yet"},
+      { "_id": "Q104", "title": "Q4 - NODE", "course": "RS101" , "description": "Multiple Modules | Not available yet"},
+      { "_id": "Q105", "title": "Q5 - REACT", "course": "RS101" , "description": "Multiple Modules | Not available yet"},
+      { "_id": "Q201", "title": "Aerodynamics Quiz", "course": "RS102" , "description": " "},
+      { "_id": "Q202", "title": "Flow Analysis", "course": "RS102" , "description": " "},
+      { "_id": "Q203", "title": "Heating Analysis", "course": "RS102", "description": " " },
+      { "_id": "Q301", "title": "Structural Design Task", "course": "RS103" , "description": " "},
+      { "_id": "Q302", "title": "Orbital Calculations", "course": "RS103", "description": " " },
+      { "_id": "Q303", "title": "Systems Engineering Exam", "course": "RS103", "description": " " }]
+  },
+  {
+    "name": "PROJECTS",
+    "_id": "A003",
+    "catalog": [
+      { "_id": "P101", "title": "Project", "course": "RS101", "description": "Multiple Modules | Not available yet " },
+      { "_id": "P204", "title": "Combustion Analysis", "course": "RS102", "description": " " },
+      { "_id": "P203", "title": "Nozzle Design Project", "course": "RS102" , "description": " "},
+      { "_id": "P201", "title": "Aerodynamics Quiz", "course": "RS102" , "description": " "},
+      { "_id": "P202", "title": "Flow Analysis", "course": "RS102" , "description": " "}]
+  },
+  {
+    "name": "EXAMS",
+    "_id": "A004",
+    "catalog": [
+      { "_id": "E101", "title": "Midterm exam", "course": "RS101", "description": "Multiple Modules | Not available yet " },
+      { "_id": "E102", "title": "Final exam", "course": "RS101", "description": "Multiple Modules | Not available yet " },
+      { "_id": "E201", "title": "Aerodynamics Quiz", "course": "RS102" , "description": " "},
+      { "_id": "E202", "title": "Flow Analysis", "course": "RS102" , "description": " "},
+      { "_id": "E203", "title": "Heating Analysis", "course": "RS102", "description": " " },
+      { "_id": "E301", "title": "Structural Design Task", "course": "RS103" , "description": " "},
+      { "_id": "E302", "title": "Orbital Calculations", "course": "RS103", "description": " " },
+      { "_id": "E303", "title": "Systems Engineering Exam", "course": "RS103", "description": " " }]
+  }
+]
