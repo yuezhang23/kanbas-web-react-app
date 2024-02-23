@@ -72,9 +72,10 @@ function Grades() {
             </div>
             <div className="table-responsive px-5">
                 <table className="table table-bordered align-middle text-center table-striped">
-                    <thead>
-                    <th className='align-middle'>Student Name</th>
-                        {as.map((assignment) => (<th>{assignment.title}<br/>{"out of 100"}</th>))}
+                    <thead className='border'>
+                        <th className='align-middle'>Student Name</th>
+                        {as.map((assignment) => (
+                            <th className='border'>{assignment.title}<br/>{"out of 100"}</th>))}
                     </thead>
                     <tbody>
                         {es.map((user)=> {
