@@ -3,7 +3,6 @@ import { FaTachometerAlt, FaRegUserCircle, FaBook, FaRegCalendarAlt,
 import "../cssSRC/module-index.css";
 import "../cssSRC/index.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle';
 import {Link} from "react-router-dom";
 import {HiMiniBars3} from "react-icons/hi2";
 

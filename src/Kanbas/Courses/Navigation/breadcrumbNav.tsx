@@ -1,4 +1,3 @@
-import db from "../../Database/Database";
 import {HiMiniBars3} from "react-icons/hi2";
 
 const BreadcrumbNav  = ({pathname, course} :{pathname : string; course: any}) => {

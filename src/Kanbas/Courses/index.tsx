@@ -12,9 +12,8 @@ import BreadcrumbNav from "./Navigation/breadcrumbNav";
 import CourseDropdown from "./Navigation/courseDropdown";
 import HeadNav from "../Navigation/headNav";
 import Grades from "./Grades";
-import store, { KanbasState } from "../store";
-import { Provider, useSelector } from "react-redux";
-import Editor from "./Modules/Editor";
+import { KanbasState } from "../store";
+import { useSelector } from "react-redux";
 
 
 function Courses() {

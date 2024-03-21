@@ -7,11 +7,9 @@ import {
     FaSearch
 } from "react-icons/fa";
 import {FaDeleteLeft, FaPencil, FaShareNodes} from "react-icons/fa6";
-import React from "react";
 import "../cssSRC/index.css";
 import "../cssSRC/module-index.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle';
 
 
 function dropdownHW() {

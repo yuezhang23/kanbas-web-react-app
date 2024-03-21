@@ -4,7 +4,7 @@ import { FaTachometerAlt, FaRegUserCircle, FaBook, FaRegCalendarAlt,
 import "../cssSRC/module-index.css";
 import "../cssSRC/index.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle';
+
 
 function KanbasNavigation() {
     const links = [

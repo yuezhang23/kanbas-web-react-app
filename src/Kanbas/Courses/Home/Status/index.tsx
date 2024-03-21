@@ -1,7 +1,7 @@
 import "../../../cssSRC/index.css";
 import "../../../cssSRC/module-index.css";
 import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.bundle';
+         
 import {
     FaUnlock,
     FaLock,

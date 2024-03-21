@@ -2,7 +2,6 @@ import {Navigate, Route, Routes, useLocation, useParams} from "react-router-dom"
 import "../cssSRC/index.css";
 import "../cssSRC/module-index.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle';
 import HeadNav from "../Navigation/headNav";
 import AccountNavigation from "./Navigation";
 import Profile from "./Profile/Content";
