@@ -20,8 +20,7 @@ function AssignmentEditor() {
           date.getMonth() + 1
         }-${date.getDate() + 1 < 10 ? 0 : ""}${date.getDate() + 1}`;
       };
-    const newDescription = "Available from " + dateToString(availFromDate) 
-    + " ~ "+ dateToString(availToDate)+" | "+"Due: "+dateToString(availDue)+ " | "+"Points: "+ points;
+    const newDescription = `Available: ${dateToString(availFromDate)} ~ ${dateToString(availToDate)} | Due: ${dateToString(availDue)} | Points: ${points}`;
 
     // const navigate = useNavigate();
     // const handleSave = () => {
