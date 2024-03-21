@@ -12,7 +12,8 @@ function TemplateLiterals() {
             result1 = { result1 } <br/>
             result2 = { result2 } <br/>
             greeting1 = { greeting1 } <br/>
-            greeting2 = { greeting2 }
+            greeting2 = { greeting2 }  <br/>
+            greeting3 = {'Logged in: '}{loggedIn ? "Yes" : "No"}
         </>
     );
 }

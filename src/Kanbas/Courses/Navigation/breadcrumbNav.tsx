@@ -1,15 +1,10 @@
-import {assignments, courses, modules} from "../../Database";
+import db from "../../Database/Database";
 import {HiMiniBars3} from "react-icons/hi2";
-import {useLocation, useParams} from "react-router-dom";
 
-function BreadcrumbNav() {
-    const { courseId} = useParams();
-    const { pathname } = useLocation();
-    const course = courses.filter((course) => course._id === courseId)[0];
-    const target = pathname.substring(pathname.lastIndexOf('/')+1);
-    const path = pathname.substring(pathname.indexOf(course._id), pathname.lastIndexOf('/')).replace(course._id, course.name);
-    const highlight = calHeadings(pathname, target);
+const BreadcrumbNav  = ({pathname, course} :{pathname : string; course: any}) => {
+    const path = pathname.substring(pathname.indexOf(course._id)).replace(course._id, course.name+"."+course.number);
     const path_arr = path.split('/');
+    const highlight = path_arr.pop();
     return (
         <>
             <nav aria-label="breadcrumb">
@@ -31,19 +26,19 @@ function BreadcrumbNav() {
 }
 export default BreadcrumbNav
 
-function calHeadings(path : string, target : string) {
-    if(path.includes("Assignments/")) {
-        const idl = target.split(':');
-        return (
-            assignments.filter((ele)=> ele._id === idl.at(0))[0]?.catalog
-                .filter((ele)=>ele._id === idl.at(1))[0].title
-        );
-    }
-    else if (path.includes("Modules/")) {
-        return (<h2>Modules</h2>);
-    }
-    else {
-        return (target);
-    }
-}
+// function calHeadings(path : string, target : string) {
+//     if(path.includes("Assignments/")) {
+//         const idl = target.split(':');
+//         return (
+//             db.assignments.filter((ele)=> ele._id === idl.at(0))[0]?.catalog
+//                 .filter((ele)=>ele._id === idl.at(1))[0].title
+//         );
+//     }
+//     else if (path.includes("Modules/")) {
+//         return (<h2>Modules</h2>);
+//     }
+//     else {
+//         return (target);
+//     }
+// }
 

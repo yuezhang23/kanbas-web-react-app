@@ -22,7 +22,8 @@
       "description": " Week 5 React& Routing - Week starting on Monday October 10th Module |\nDue Oct 23, 2022 at 11:59pm | 100ps" },
     { "_id": "A301", "title": "Structural Design Task", "course": "RS103" , "description": " "},
     { "_id": "A302", "title": "Orbital Calculations", "course": "RS103", "description": " " },
-    { "_id": "A303", "title": "Systems Engineering Exam", "course": "RS103", "description": " " }]
+    { "_id": "A303", "title": "Systems Engineering Exam", "course": "RS103", "description": " " }
+  ]
   },
   {
     "name": "QUIZZES",

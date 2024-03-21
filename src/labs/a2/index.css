@@ -89,12 +89,16 @@
 
 
 .wd-margin-top {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
-.wd-margin-right-left {
+.wd-margin-bottom{
+    margin-bottom: 80px;
+}
+
+.wd-margin-top-left {
     margin-left: 50px;
-    margin-right: 50px;
+    margin-top: 50px;
 }
 
 .wd-margin-all-around {
@@ -137,8 +141,9 @@
 .wd-pos-relative-nudge-up-right {
     position: relative;
     bottom: 20px;
-    left: 20px;
+    left: 30px;
 }
+
 .wd-pos-relative-nudge-down-right {
     position: relative;
     top: 20px;

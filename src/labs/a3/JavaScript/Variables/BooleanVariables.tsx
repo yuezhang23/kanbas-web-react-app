@@ -11,7 +11,7 @@ function BooleanVariables() {
         <div>
             <h2>Boolean Variables</h2>
             true1     = {true1 + ""}     <br />
-            false1    = {false1 + ""}    <br />
+            false1    = {false1.toString()}  <br />
             false2    = {false2 + ""}    <br />
             true2     = {true2 + ""}     <br />
             true3     = {true3 + ""}     <br />

@@ -6,16 +6,20 @@ function VariableTypes() {
     let isNumber = typeof numberVariable;
     let isString = typeof stringVariable;
     let isBoolean = typeof booleanVariable;
+    // let trial = 'newString'.replace('new', 'old');
+
     return(
         <div>
             <h2>Variables Types</h2>
-            numberVariable = { numberVariable }<br/>
-            floatingPointNumber = { floatingPointNumber }<br/>
-            stringVariable = { stringVariable }<br/>
+            numberVariable = { numberVariable + 5}<br/>
+            floatingPointNumber = { floatingPointNumber + 1 }<br/>
+            stringVariable = { stringVariable +5}<br/>
             booleanVariable = { booleanVariable + "" }<br/>
             isNumber = { isNumber }<br/>
             isString = { isString }<br/>
             isBoolean = { isBoolean }<br/>
+            trial = {'newString'.replace('new', 'old')}
+
         </div>
     );
 }

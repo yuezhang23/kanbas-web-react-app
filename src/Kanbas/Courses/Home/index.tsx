@@ -1,7 +1,6 @@
 import "../../cssSRC/index.css";
 import "../../cssSRC/module-index.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle';
 import CourseStatus from "./Status";
 import Modules from "../Modules";
 

@@ -1,6 +1,13 @@
+import { useLocation } from "react-router";
 import ModuleList from "./List";
-import {FaCheckCircle, FaChevronDown, FaEllipsisV, FaPlus} from "react-icons/fa";
+import {FaCheckCircle, FaEllipsisV} from "react-icons/fa";
+import { Link } from "react-router-dom";
+import Editor from "./Editor";
+
+
 function Modules() {
+    const {pathname} = useLocation();
+
     return (
         <div className='mt-2'>
             <div className="d-flex form pb-2 border-bottom m-4">
@@ -15,10 +22,21 @@ function Modules() {
                     <a className="dropdown-item" href="#">Selection One</a>
                     <a className="dropdown-item" href="#">Something else here</a>
                 </div>
-                <button className="form-control btn btn-danger p-1  me-2" type="button"> + Module </button>
+                    <Link 
+                        to={`${pathname}/editCourse`} className="text-white form-control btn btn-danger" >
+                            Module + 
+                    </Link>
                 <button className="btn btn-light p-1 rounded-0" type="button"> <FaEllipsisV/> </button>
             </div>
-            <ModuleList />
+            <div>
+                <ul className="list-group wd-modules rounded-top-0"> 
+                    <li 
+                        className={pathname.includes("editCourse") ? "list-group-item p-0 mx-4" : "d-none"}>
+                        <Editor/>
+                    </li>
+                    <ModuleList />
+                </ul>
+            </div>
         </div>
     );
 }

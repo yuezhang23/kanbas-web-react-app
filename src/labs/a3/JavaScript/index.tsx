@@ -21,6 +21,7 @@ import House from "./json/House";
 import Spreading from "./json/Spreading";
 import Destructing from "./json/Destructing";
 import FunctionDestructing from "./Functions/FunctionDestructing";
+import WhileLoop from "./arrays/whileLoop";
 
 function JavaScript() {
     console.log('Hello World')
@@ -40,6 +41,7 @@ function JavaScript() {
             <ArrayIndexAndLength/>
             <AddingAndRemoveDataToFromArrays/>
             <Forloops/>
+            <WhileLoop/>
             <MapFunc/>
             <JsonStringify/>
             <FindFunc/>

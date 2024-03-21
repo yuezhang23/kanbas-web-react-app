@@ -1,14 +1,14 @@
-[ { "_id": "RS101", "name": "CS5610.36915.202430","startDate": "2023-01-10",
+[ { "_id": "RS101", "name": "CS5610", "number" :"36915.202430", "startDate": "2023-01-10",
   "endDate": "2023-05-15", "text": "Web DevFull Stack software developer" ,"image":"0.png"  },
-  { "_id": "RS102", "name": "CS5001.32564","startDate": "2023-01-10",
+  { "_id": "RS102", "name": "CS5001", "number" :"32564","startDate": "2023-01-10",
     "endDate": "2023-05-15", "text": " Machine Learning\nIntroduction to neural networks" ,"image": "1.png"  },
-  { "_id": "RS103", "name": "CS5002.12564","startDate": "2023-01-10",
+  { "_id": "RS103", "name": "CS5002", "number" :"12564","startDate": "2023-01-10",
     "endDate": "2023-05-15", "text": "Discrete Structures \nMathematics to Computer Science" ,"image": "2.png"  },
-  { "_id": "RS104", "name": "CS5004.52564","startDate": "2023-01-10",
+  { "_id": "RS104", "name": "CS5004", "number" :"52564","startDate": "2023-01-10",
     "endDate": "2023-05-15", "text": " Object-Oriented Design\nIntroduction to Java" ,"image": "3.png"  },
-  { "_id": "RS105", "name": "CS5008.22564","startDate": "2023-01-10",
+  { "_id": "RS105", "name": "CS5008", "number" :"36915.22564","startDate": "2023-01-10",
     "endDate": "2023-05-15", "text": " Computer Systems\nIntroduction to C" ,"image": "4.png"  },
-  { "_id": "RS106", "name": "CS5004.15564","startDate": "2023-01-10",
+  { "_id": "RS106", "name": "CS5004", "number" :"36915.15564","startDate": "2023-01-10",
     "endDate": "2023-05-15", "text": " Database Management\nIntroduction to SQL" ,"image": "5.png"  }
 ]
 

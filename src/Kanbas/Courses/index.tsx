@@ -2,7 +2,6 @@ import {Navigate, Route, Routes, useLocation, useParams} from "react-router-dom"
 import "../cssSRC/index.css";
 import "../cssSRC/module-index.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle';
 import CourseNavigation from "../Courses/Navigation";
 import CourseHome from "./Home";
 import Modules from "./Modules";
@@ -10,33 +9,37 @@ import {FaGlasses} from "react-icons/fa";
 import Assignments from "../Assignments";
 import AssignmentEditor from "../Assignments/Editor";
 import BreadcrumbNav from "./Navigation/breadcrumbNav";
-import {courses} from "../Database";
 import CourseDropdown from "./Navigation/courseDropdown";
 import HeadNav from "../Navigation/headNav";
 import Grades from "./Grades";
+import store, { KanbasState } from "../store";
+import { Provider, useSelector } from "react-redux";
+import Editor from "./Modules/Editor";
 
 
 function Courses() {
     const {courseId} = useParams();
     const { pathname } = useLocation();
-    const course = courses.filter((course) => course._id === courseId)[0];
+    const { items } = useSelector((state: KanbasState) => state.courseReducer);
+    const course = items.find((course) => course._id === courseId);
+
     return (
         <>
-            <div className="d-flex d-block d-md-none bg-dark text-white py-2">
+            <div className="d-flex d-block d-md-none bg-dark text-white">
                 <div className="col">
                     <HeadNav/>
                 </div>
                 <div className="col text-center">
-                    {course.name }<br/>{pathname.substring(pathname.lastIndexOf('/') +1 )}
+                    {course?.name}<br/>{pathname.substring(pathname.lastIndexOf('/') +1 )}
                 </div>
                 <div className="col text-end">
                     <CourseDropdown/>
                 </div>
             </div>
-            <div className="mx-5 d-none d-md-block">
+            <div className="d-none d-md-block">
                  <div className="d-flex flex-row border-bottom">
-                     <div className='col'>
-                         <BreadcrumbNav/>
+                     <div className='col ms-4'>
+                         <BreadcrumbNav pathname={pathname} course={course}/>
                      </div>
                      <div className='col text-end mt-2'>
                         <button type="button" className="btn btn-light p-1 ">
@@ -45,20 +48,22 @@ function Courses() {
                      </div>
                  </div>
             </div>
-            <div className='d-flex mt-4'>
+            <div className='d-flex '>
                 <div className='d-none d-md-block'>
                     <CourseNavigation />
                 </div>
                 <div className="overflow-y-scroll bottom-0 end-0 flex-fill"
                     style={{left: "320px", top: "120px" }} >
+
                     <Routes>
                         <Route path="/" element={<Navigate to="Home" />} />
-                        <Route path="Home" element={<CourseHome/>} />
-                        <Route path="Modules" element={<Modules/>} />
+                        <Route path="Home/*" element={<CourseHome/>} />
+                        <Route path="Modules/*" element={<Modules/>} />
                         <Route path="Piazza" element={<h1>Piazza</h1>} />
                         <Route path="Quizzes" element={<h1>Quizzes</h1>} />
                         <Route path="Assignments" element={<Assignments/>} />
-                        <Route path="Assignments/:assignmentId" element={<AssignmentEditor/>} />
+                        <Route path="Assignments/Delete" element={<Assignments/>} />
+                        <Route path="Assignments/Edit/*" element={<AssignmentEditor/>} />
                         <Route path="Grades" element={<Grades/>} />
                         <Route path="People" element={<h1>People</h1>} />
                         <Route path="Discussion" element={<h1>Discussion</h1>} />

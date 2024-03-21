@@ -1,6 +1,10 @@
 const subtract = (a: number, b: number) => a - b;
 const threeMinusOne = subtract(3, 1);
 console.log(threeMinusOne);
+const add = (a : GLfloat, b : GLfloat) => {
+    return (a + b);
+}
+
 
 function ES6ArrowFunc() {
     return (

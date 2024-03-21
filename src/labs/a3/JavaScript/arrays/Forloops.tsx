@@ -8,6 +8,7 @@ function Forloops() {
         stringArray2.push(
             string1.toUpperCase());
     }
+    
     return (
         <>
             <h2>Looping through Arrays</h2>

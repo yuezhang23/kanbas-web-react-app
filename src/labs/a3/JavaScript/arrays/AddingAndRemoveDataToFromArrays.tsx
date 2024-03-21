@@ -4,7 +4,7 @@ function AddingAndRemoveDataToFromArrays() {
     let stringArray1 = ['string1', 'string2'];
     numberArray1.push(6);
     stringArray1.push('string3');
-    numberArray1.splice(2, 1);
+    numberArray1.splice(1, 2);
     stringArray1.splice(1, 1);
     return (
         <>

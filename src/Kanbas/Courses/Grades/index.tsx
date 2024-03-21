@@ -1,12 +1,16 @@
-import { assignments, enrollment, grades, users } from "../../Database";
+import db from "../../Database/Database";
 import { useParams } from "react-router-dom";
 import {FaFilter, FaSearch, FaSignInAlt, FaSignOutAlt} from "react-icons/fa";
 import {FaGear} from "react-icons/fa6";
+import "../../cssSRC/index.css";
+import "../../cssSRC/module-index.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 function Grades() {
     const { courseId } = useParams();
-    const es_id = enrollment.filter((enrollment) => enrollment.course === courseId).map((st)=>st.user);
-    const es = users.filter((st)=>es_id.includes(st.student_id));
-    const as_cat1 = assignments.filter((name)=> name.name === "ASSIGNMENTS")[0].catalog;
+    const es_id = db.enrollment.filter((enrollment) => enrollment.course === courseId).map((st)=>st.user);
+    const es = db.users.filter((st)=>es_id.includes(st.student_id));
+    const as_cat1 = db.assignments.filter((name)=> name.name === "ASSIGNMENTS")[0].catalog;
     const as = as_cat1.filter((assignment) => assignment.course === courseId);
     return (
         <>
@@ -56,7 +60,7 @@ function Grades() {
                         <select className="form-select border rounded-1 px-2 form-control" id="gdCheck">
                             <option>Search Assignments</option>
                             <option >All</option>
-                            {assignments.map((assignment) => {
+                            {db.assignments.map((assignment) => {
                                 return (
                                     <option >{assignment.name}</option>
                                 );})}
@@ -83,7 +87,7 @@ function Grades() {
                                 <tr>
                                     <td className='text-danger'>{user.firstName} {user.lastName}</td>
                                     {as.map((assignment) => {
-                                        const grade = grades.find(
+                                        const grade = db.grades.find(
                                             (grade) => grade.student === user.student_id
                                                 && grade.assignment === assignment._id);
                                         return (
@@ -91,8 +95,10 @@ function Grades() {
                                         );})}
                                 </tr>
                             );})}
-                    </tbody></table>
+                    </tbody>
+                </table>
             </div>
-        </>);
+        </>
+    );
 }
 export default Grades;

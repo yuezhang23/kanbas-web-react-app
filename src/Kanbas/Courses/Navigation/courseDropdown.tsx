@@ -1,5 +1,5 @@
 import {Link, useParams} from "react-router-dom";
-import {course_menu, courses} from "../../Database";
+import db from "../../Database/Database";
 import {FaChevronDown} from "react-icons/fa";
 
 function CourseDropdown() {
@@ -10,7 +10,7 @@ function CourseDropdown() {
                 <FaChevronDown color={'white'}/>
             </button>
             <div className='dropdown-menu wd-full-frame'>
-                {course_menu.map((link) => (
+                {db.course_menu.map((link) => (
                     <a className='dropdown-item'>
                         <Link to={`/Kanbas/Courses/${courseId}/${link}`} > {link} </Link>
                     </a>

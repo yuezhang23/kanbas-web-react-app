@@ -11,7 +11,7 @@ function ES5Functions() {
         </>
     )
 }
-function add (a: number, b: number) {
+function add (a: number, b: number) : number {
     return a + b;
 }
 export default ES5Functions
