@@ -53,37 +53,32 @@ const addItem = (state: any, action: any) => {
 };
 
 const updateCourseItem = (state :any, action :any) => {
-    state.items = state.items.map((item :any) => item._id == action.payload._id ? action.payload: item);
+    state.items = state.items.map((item :any) => item._id === action.payload._id ? action.payload: item);
     state.item = initialCourseState.item;
 };
 
 const updateModuleItem = (state :any, action :any) => {
-    state.items = state.items.map((item :any) => item._id == action.payload._id ? action.payload: item);
+    state.items = state.items.map((item :any) => item._id === action.payload._id ? action.payload: item);
     state.item = initialModuleState.item;
 };
 
-// const updateModuleSingleItem = (state :any, action :any) => {
-//     // review
-//     // const {lessons, ...rest} = state.items.filter((item :any) => item._id == action.payload._id)[0];
-//     // const newLessons = lessons.map((term: any) => term._id == action.payload.lessons[0]._id ? action.payload.lessons[0]: term);
-//     // state.items = state.items.map((item :any) => item._id == action.payload._id ? {newLessons, ...rest}: item);
-//     // state.item = initialModuleState.item;
-
-//     const oriModile = state.items.filter((item :any) => item._id == action.payload._id)[0];
-//     oriModile.lessons = oriModile.lessons.map((term: any) => term._id == action.payload.lessons[0]._id ? action.payload.lessons[0]: term);
-//     state.items = state.items.map((item :any) => item._id == oriModile._id ? oriModile: item);
-//     state.item = initialModuleState.item;
-// };
+const updateModuleSingleItem = (state :any, action :any) => {
+    // review
+    // state.item = {...state.items.filter((item :any) => item._id === action.payload._id)[0]};
+    state.item.name = action.payload.name;
+    state.item.description = action.payload.description;
+    state.item.lessons = state.item.lessons.map((term: any) => term._id === action.payload.lessons[0]._id ? action.payload.lessons[0]: term);
+};
 
 const updateAssignmentSingleItem = (state :any, action :any) => {
-    const oriItem = state.items.filter((item :any) => item._id == action.payload._id)[0];
-    oriItem.catalog = oriItem.catalog.map((term: any) => term._id == action.payload.catalog[0]._id ? action.payload.catalog[0]: term);
-    state.items = state.items.map((item :any) => item._id == oriItem._id ? oriItem: item);
+    const oriItem = state.items.filter((item :any) => item._id === action.payload._id)[0];
+    oriItem.catalog = oriItem.catalog.map((term: any) => term._id === action.payload.catalog[0]._id ? action.payload.catalog[0]: term);
+    state.items = state.items.map((item :any) => item._id === oriItem._id ? oriItem: item);
     state.item = initialAssignmentState.item;
 };
 
 const updateAssignmentItem = (state :any, action :any) => {
-    state.items = state.items.map((item :any) => item._id == action.payload._id ? action.payload: item);
+    state.items = state.items.map((item :any) => item._id === action.payload._id ? action.payload: item);
     state.item = initialAssignmentState.item;
 };
 
@@ -117,11 +112,12 @@ const moduleSlice =  createSlice({
     reducers : {
         addModule: addItem,
         updateModule: updateModuleItem,
+        updateModuleSingle: updateModuleSingleItem,
         deleteModule: deleteItem,
         setModule: setItem
     }
 });
-export const {addModule, updateModule, deleteModule, setModule} = moduleSlice.actions;
+export const {addModule, updateModule, updateModuleSingle, deleteModule, setModule} = moduleSlice.actions;
 export const moduleReducer =  moduleSlice.reducer;
 
 

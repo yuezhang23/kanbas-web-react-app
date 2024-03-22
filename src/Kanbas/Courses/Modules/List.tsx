@@ -41,20 +41,19 @@ function ModuleList() {
                     </div>
                 </div>
                 {selectedModule._id === module._id && (
-                    <ul className="list-group">
-                        {module.lessons.map((lesson : any) => (
-                            <li className="list-group-item pt-3">
+                    <ul id= "1tier" className="list-group">
+                        {module.lessons.map((lesson : any, step:number) => (
+                            <li key={step} className="list-group-item pt-3">
                                 <FaEllipsisV className="me-2" />
                                 {lesson.lname}
                                 <span className="float-end">
                                     <FaCheckCircle 
-                                    className={pathname.includes("editCourse")? "d-none":"text-success"}/>
-                                
+                                    className={pathname.includes("editCourse")? "d-none":"text-success"}/>                    
                                     <FaEllipsisV className="ms-2" />
                                 </span>
-                                <ul className="list-group mt-2">
-                                    { lesson.description.map((link: any)=> (
-                                        <li className="list-group-item mx-2">
+                                <ul id="2tier" className="list-group mt-2">
+                                    { lesson.description.map((link: any, index: number)=> (
+                                        <li key={index} className="list-group-item mx-2">
                                             <Link className={lesson.lname.includes('Slides')? "":"inactive"} to={`/Kanbas/${link}`} >
                                                     {link} </Link>
                                         </li>
