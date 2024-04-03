@@ -3,7 +3,7 @@ import { KanbasState } from "../../store";
 import { addModule, setModule, updateModule} from "../../Redux/kanbasReducer";
 import { useLocation, useParams } from "react-router";
 import { Link } from "react-router-dom";
-import { addNewItemD, initializeItem, updateItemD } from "../../client";
+import * as client from "../../client";
 
 
 function Editor() {
@@ -11,20 +11,16 @@ function Editor() {
     const {pathname} =useLocation();
     const path = pathname.substring(0,pathname.lastIndexOf("/"));
  
-    const MODULES_API = `http://localhost:4000/api/courses/${courseId}/modules`;
     const dispatch = useDispatch();
-
-
     const {item} = useSelector((state: KanbasState) => state.moduleReducer);
-    
 
     const handleAddNewModule = () => {
-        addNewItemD(MODULES_API, item).then((item)=> {dispatch(addModule({...item}))});
+        client.addNewItemD(`${client.COURSES_API}/${courseId}/modules`, item).then((item)=> {dispatch(addModule({...item}))});
     };
 
     const handleUpdateModule = () =>{
-        updateItemD(MODULES_API, item).then((status)=> {dispatch(updateModule(item))});
-        initializeItem(MODULES_API).then((item)=> {dispatch(setModule(item))});
+        client.updateItemD(`${client.COURSES_API}/${courseId}/modules`, item).then((status)=> {dispatch(updateModule(item))});
+        client.initializeItem(`${client.COURSES_API}/${courseId}/modules`).then((item)=> {dispatch(setModule(item))});
     }
 
     const handleUpdateLesson = (newLesson : any) =>{

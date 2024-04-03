@@ -5,7 +5,7 @@ import {FaCheckCircle} from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { KanbasState } from "../../store";
 import { addAssignment, setAssignment, updateAssignment, } from "../../Redux/kanbasReducer";
-import { addNewItemD, updateSubItemD } from "../../client";
+import * as client from "../../client";
 
 function AssignmentEditor() {
     const {pathname} = useLocation();
@@ -24,14 +24,13 @@ function AssignmentEditor() {
       };
     const newDescription = `Available: ${dateToString(availFromDate)} ~ ${dateToString(availToDate)} | Due: ${dateToString(availDue)} | Points: ${points}`;
 
-    const COURSES_API=  "http://localhost:4000/api/courses";
 
     const handleUpdateAssignmentSubitem = (subItem : any, sid :any) =>{
-        updateSubItemD(`${COURSES_API}/${courseId}/assignments`, subItem, sid).then((item)=> {dispatch(updateAssignment(item))});
+        client.updateSubItemD(`${client.COURSES_API}/${courseId}/assignments`, subItem, sid).then((item)=> {dispatch(updateAssignment(item))});
     }
 
     const handleAddAssignment = () => {
-        addNewItemD(`${COURSES_API}/${courseId}/assignments`, item).then((i)=> {dispatch(addAssignment(i))});
+        client.addNewItemD(`${client.COURSES_API}/${courseId}/assignments`, item).then((i)=> {dispatch(addAssignment(i))});
     }
 
 

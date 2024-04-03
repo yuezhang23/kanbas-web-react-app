@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addCourse, setCourse, updateCourse} from "../Redux/kanbasReducer";
 import { KanbasState } from "../store";
-import { addNewItemD, initializeItem, updateItemD } from "../client";
+import * as client from "../client";
+
 
 
 function CourseEditor(courseIP : any) {
@@ -10,12 +11,12 @@ function CourseEditor(courseIP : any) {
     const dispatch = useDispatch();
 
     const handleAddNewCourse = () => {
-        addNewItemD(courseIP.ip, course).then((item)=> {dispatch(addCourse({...item}))});
+        client.addNewItemD(courseIP.ip, course).then((item)=> {dispatch(addCourse({...item}))});
     };
 
     const handleUpdateCourse = () =>{
-        updateItemD(courseIP.ip, course).then((status)=> {dispatch(updateCourse(course))});
-        initializeItem(courseIP.ip).then((item)=> {dispatch(setCourse(item))});
+        client.updateItemD(courseIP.ip, course).then((status)=> {dispatch(updateCourse(course))});
+        client.initializeItem(courseIP.ip).then((item)=> {dispatch(setCourse(item))});
     }
 
     return (

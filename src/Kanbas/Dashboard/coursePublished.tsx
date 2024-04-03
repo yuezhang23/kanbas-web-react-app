@@ -5,22 +5,21 @@ import "../cssSRC/module-index.css";
 import { useDispatch, useSelector } from "react-redux";
 import {setCourse, deleteCourse, setCourses } from "../Redux/kanbasReducer";
 import { KanbasState } from "../store";
-import { deleteItemD, findAllData, initializeItem } from "../client";
+import * as client from "../client";
 import { useEffect } from "react";
 
 function PublishedCourse() {
    
     const dispatch = useDispatch();
     const { pathname}= useLocation();
-    const COURSES_API=  "http://localhost:4000/api/courses";
 
     useEffect(() => {
-        findAllData(COURSES_API).then((data)=>  {dispatch(setCourses(data))});
-        initializeItem(COURSES_API).then((data)=> {dispatch(setCourse(data))});
-    }, [COURSES_API]);
+        client.findAllData(client.COURSES_API).then((data)=>  {dispatch(setCourses(data))});
+        client.initializeItem(client.COURSES_API).then((data)=> {dispatch(setCourse(data))});
+    }, [client.COURSES_API]);
        
     const handleDeleteCourse = (id:any) =>{
-        deleteItemD(COURSES_API, id).then((status) => {dispatch(deleteCourse(id))});
+        client.deleteItemD(client.COURSES_API, id).then((status) => {dispatch(deleteCourse(id))});
     }
     
     const courses = useSelector((state: KanbasState) => state.courseReducer.items);

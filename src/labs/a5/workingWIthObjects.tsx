@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 function WorkingWithObjects() {
+const API_BASE = process.env.REACT_APP_API_BASE;
+
   const [assignment, setAssignment] = useState(
     {
     id: -1, title: "New Title",
@@ -10,8 +12,8 @@ function WorkingWithObjects() {
   );
   const [done, setDone] = useState(false);
 
-  const ASSIGNMENT_URL = "http://localhost:4000/a5/assignment"
-  const Module_URL = "http://localhost:4000/a5/module"
+  const ASSIGNMENT_URL = `${API_BASE}/a5/assignment`
+  const Module_URL = `${API_BASE}/a5/module`
   const [module, setModule] = useState({
     id: 1, name: "NodeJS Module",
     description: "Create new Module",
@@ -56,11 +58,11 @@ function WorkingWithObjects() {
       <h4>Modifying Properties</h4>
 
       <h4>Retrieving Objects</h4>
-      <a className="btn btn-primary" href="http://localhost:4000/a5/assignment">
+      <a className="btn btn-primary" href= { ASSIGNMENT_URL} >
         Get Assignment
       </a>
       <h4>Retrieving Properties</h4>
-      <a className="btn btn-primary"  href="http://localhost:4000/a5/assignment/title">
+      <a className="btn btn-primary"  href= { `${ASSIGNMENT_URL}/title`}>
         Get Title
       </a>
       <br/>
@@ -122,7 +124,6 @@ function WorkingWithObjects() {
       </a>
       <br/>
       <br/>
-
 
     </div>
   );

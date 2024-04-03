@@ -5,24 +5,23 @@ import {Link, useLocation, useParams} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {deleteModule, setModule, setModules} from "../../Redux/kanbasReducer";
 import { useEffect, useState } from "react";
-import { deleteItemD, findAllData, initializeItem, setItemD } from "../../client";
+import * as client from "../../client";
 import { KanbasState } from "../../store";
 
 
 function ModuleList() {
     const {courseId} = useParams();
-    const COURSES_API=  "http://localhost:4000/api/courses";
     const dispatch = useDispatch();
     const {pathname} = useLocation();
 
     useEffect(() => {
-        findAllData(`${COURSES_API}/${courseId}/modules`).then((data)=>  {dispatch(setModules(data))});
-        initializeItem(`${COURSES_API}/${courseId}/modules`).then((data)=> {dispatch(setModule(data))});
+        client.findAllData(`${client.COURSES_API}/${courseId}/modules`).then((data)=>  {dispatch(setModules(data))});
+        client.initializeItem(`${client.COURSES_API}/${courseId}/modules`).then((data)=> {dispatch(setModule(data))});
     }, [courseId]);
 
     const {items} = useSelector((state: KanbasState) => state.moduleReducer)
     const handleDeleteModule = (id:any) =>{
-        deleteItemD(`${COURSES_API}/${courseId}/modules`, id).then((status) => {dispatch(deleteModule(id))});
+        client.deleteItemD(`${client.COURSES_API}/${courseId}/modules`, id).then((status) => {dispatch(deleteModule(id))});
     }
     const [selectedModule, setSelectedModule] = useState({...items[0]});
     

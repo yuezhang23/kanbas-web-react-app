@@ -1,4 +1,10 @@
 import axios from "axios";
+const API_BASE = process.env.REACT_APP_API_BASE;
+
+export const COURSES_API = `${API_BASE}/api/courses`;
+export const MODULES_API = `${API_BASE}/api/modules`;
+export const ASSIGNMENTS_API =`${API_BASE}/api/assignments`;
+
 
 export const findAllData = async (locIP : string) => {
     const response = await axios.get(locIP);

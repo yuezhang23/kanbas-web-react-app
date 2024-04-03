@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { KanbasState } from "../store";
 import { deleteAssignment, setAssignment, setAssignments, updateAssignment} from "../Redux/kanbasReducer";
 import { useEffect, useState } from "react";
-import { deleteItemD, deleteSubItemD, findAllData, initializeItem, setItemD, updateItemD} from "../client";
+import * as client from "../client";
 
 function Assignments() {
     const { courseId } = useParams();
@@ -19,10 +19,9 @@ function Assignments() {
         {label:"PROJECTS", weights:"20%"},{label:"EXAMS", weights:"30%"},
     ]
 
-    const COURSES_API=  "http://localhost:4000/api/courses";
     useEffect(() => {
-        findAllData(`${COURSES_API}/${courseId}/assignments`).then((data)=>  {dispatch(setAssignments(data))});
-        initializeItem(`${COURSES_API}/${courseId}/assignments`).then((data)=> {dispatch(setAssignment(data))});
+        client.findAllData(`${client.COURSES_API}/${courseId}/assignments`).then((data)=>  {dispatch(setAssignments(data))});
+        client.initializeItem(`${client.COURSES_API}/${courseId}/assignments`).then((data)=> {dispatch(setAssignment(data))});
     }, [courseId]);
 
     const dispatch = useDispatch();
@@ -32,7 +31,7 @@ function Assignments() {
     
     const handleEdit = (item : any) => {
         if (Object.keys(item).length === 0) {
-            initializeItem(`${COURSES_API}/${courseId}/assignments`).then((data)=> {dispatch(setAssignment(data))});
+            client.initializeItem(`${client.COURSES_API}/${courseId}/assignments`).then((data)=> {dispatch(setAssignment(data))});
         } else {
             dispatch(setAssignment(item));
         }
@@ -41,10 +40,10 @@ function Assignments() {
     const handleDeleteAssignemnt = (id :any, sid : any) =>{
         const result = window.confirm('Do you want to DELETE?');
         if (result && id === sid) {
-            deleteItemD(`${COURSES_API}/${courseId}/assignments`, id).then((status) => {dispatch(deleteAssignment(id))});
+            client.deleteItemD(`${client.COURSES_API}/${courseId}/assignments`, id).then((status) => {dispatch(deleteAssignment(id))});
         } 
         if (result && id !== sid) {         
-            deleteSubItemD(`${COURSES_API}/${courseId}/assignments`, id, sid).then((data) => {dispatch(updateAssignment(data))});
+            client.deleteSubItemD(`${client.COURSES_API}/${courseId}/assignments`, id, sid).then((data) => {dispatch(updateAssignment(data))});
         }
     }
     return (

@@ -5,13 +5,23 @@ import {FaGear} from "react-icons/fa6";
 import "../../cssSRC/index.css";
 import "../../cssSRC/module-index.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import * as client from "../../client";
+import { useEffect, useState } from "react";
 
 function Grades() {
-    const { courseId } = useParams();
-    const es_id = db.enrollment.filter((enrollment) => enrollment.course === courseId).map((st)=>st.user);
+    const courseId  = useParams();
+    const [HWs, setHWS] = useState([{name : "new", _id : "-1", catalog : [{}]}]);
+    const [HW, setHW] = useState({});
+
+    useEffect(() => {
+        client.findAllData(`${client.ASSIGNMENTS_API}`).then((data)=>  setHWS(data));
+        client.initializeItem(`${client.COURSES_API}/${courseId}/assignments`).then((data)=> setHW(data));
+    }, [courseId]);
+
+    const es_id = db.enrollment.filter((enrollment : any) => enrollment.course === courseId).map((st)=>st.user);
     const es = db.users.filter((st)=>es_id.includes(st.student_id));
-    const as_cat1 = db.assignments.filter((name)=> name.name === "ASSIGNMENTS")[0].catalog;
-    const as = as_cat1.filter((assignment) => assignment.course === courseId);
+    const as_cat1 = HWs.filter((name : any)=> name.name === "ASSIGNMENTS")[0].catalog;
+    const as = as_cat1.filter((assignment : any) => assignment.course === courseId);
     return (
         <>
             <div className="wd-modules px-5 mt-3">
@@ -60,7 +70,7 @@ function Grades() {
                         <select className="form-select border rounded-1 px-2 form-control" id="gdCheck">
                             <option>Search Assignments</option>
                             <option >All</option>
-                            {db.assignments.map((assignment) => {
+                            {HWs.map((assignment : any) => {
                                 return (
                                     <option >{assignment.name}</option>
                                 );})}
@@ -78,7 +88,7 @@ function Grades() {
                 <table className="table table-bordered align-middle text-center table-striped">
                     <thead className='border'>
                         <th className='align-middle'>Student Name</th>
-                        {as.map((assignment) => (
+                        {as.map((assignment : any) => (
                             <th className='border'>{assignment.title}<br/>{"out of 100"}</th>))}
                     </thead>
                     <tbody>
@@ -86,7 +96,7 @@ function Grades() {
                             return (
                                 <tr>
                                     <td className='text-danger'>{user.firstName} {user.lastName}</td>
-                                    {as.map((assignment) => {
+                                    {as.map((assignment :any) => {
                                         const grade = db.grades.find(
                                             (grade) => grade.student === user.student_id
                                                 && grade.assignment === assignment._id);

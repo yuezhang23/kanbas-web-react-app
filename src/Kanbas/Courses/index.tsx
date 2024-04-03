@@ -14,7 +14,7 @@ import HeadNav from "../Navigation/headNav";
 import Grades from "./Grades";
 import { KanbasState } from "../store";
 import { useDispatch, useSelector } from "react-redux";
-import { setItemD } from "../client";
+import * as client from "../client";
 import { useEffect } from "react";
 import { setCourse } from "../Redux/kanbasReducer";
 
@@ -23,10 +23,9 @@ function Courses() {
     const { pathname } = useLocation();
     const dispatch = useDispatch();
     
-    const COURSES_API=  "http://localhost:4000/api/courses";
     
     useEffect(() => {
-        setItemD(COURSES_API, courseId).then((data)=>  {dispatch(setCourse(data))});
+        client.setItemD(client.COURSES_API, courseId).then((data)=>  {dispatch(setCourse(data))});
     }, [courseId]);
     
     const course = useSelector((state: KanbasState) => state.courseReducer.item);
