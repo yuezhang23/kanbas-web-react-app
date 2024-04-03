@@ -25,38 +25,20 @@ const API_BASE = process.env.REACT_APP_API_BASE;
     const response = await axios.get(`${ASSIGNMENT_URL}`);
     setAssignment(response.data);
   };
+
   const updateTitle = async () => {
     const response = await axios
       .get(`${ASSIGNMENT_URL}/title/${assignment.title}`);
-    // setAssignment(response.data);
+    setAssignment(response.data);
   };
-  // useEffect(() => {
-  //   fetchAssignment();
-  // }, []);
+  useEffect(() => {
+    fetchAssignment();
+  }, []);
 
 
   return (
     <div>
       <h3>Working With Objects</h3>
-
-      <h4>Modifying Properties - Fetch</h4>
-      <input onChange={(e) => setAssignment({
-            ...assignment, title: e.target.value })}
-        value={assignment.title} type="text" />
-      <br/>
-      <button onClick={updateTitle} className="my-2 btn btn-danger">
-        Update Title to: {assignment.title}
-      </button>
-      <br/>
-       <pre>
-        {JSON.stringify(assignment, null, 2)}
-        </pre>
-      <button onClick={fetchAssignment} className="btn btn-warning">
-        Fetch Assignment
-      </button>
-      <br/>
-      <h4>Modifying Properties</h4>
-
       <h4>Retrieving Objects</h4>
       <a className="btn btn-primary" href= { ASSIGNMENT_URL} >
         Get Assignment
@@ -65,8 +47,53 @@ const API_BASE = process.env.REACT_APP_API_BASE;
       <a className="btn btn-primary"  href= { `${ASSIGNMENT_URL}/title`}>
         Get Title
       </a>
+      <br></br>
+      <h4>Modifying Properties</h4>
+      <input onChange={(e) => setAssignment({
+            ...assignment, title: e.target.value })}
+        value={assignment.title} type="text" />
       <br/>
-      <h4>Modify Properties</h4>
+      <button onClick={updateTitle} className="my-2 btn btn-danger">
+        Update Title
+      </button>
+      <br/>
+       {/* <pre>
+        {JSON.stringify(assignment, null, 2)}
+        </pre> */}
+      <button onClick={fetchAssignment} className="btn btn-warning">
+        Fetch Assignment
+      </button>
+      <br/>
+
+      <h4>Modifying Properties - module</h4>
+      <input type="text" 
+        onChange={(e) => setModule({ ...module,
+            name: e.target.value })}
+        value={module.name}/>
+      <a className="btn btn-danger ms-2" href={`${Module_URL}/name/${module.name}`}>
+        Update Module Name
+      </a>
+      <br/>
+      <br/>
+      <a className="btn btn-primary" href={`${Module_URL}`}>
+        Get Module
+      </a>
+      <a className="btn btn-success" href={`${Module_URL}/name`}>
+        Get Module Name
+      </a>
+      <br/>
+      <br/>
+      <textarea 
+        onChange={(e) => setModule({ ...module,
+            description: e.target.value })}
+        value={module.description}/>
+      <a className="btn btn-primary ms-2" href={`${Module_URL}/description/${module.description}`}>
+        Update Module Description
+      </a>
+      <br/>
+
+      <br/>
+      <h4>Modify Properties - assignments</h4>
       <input type="text" 
         onChange={(e) => setAssignment({ ...assignment,
           title: e.target.value })}
@@ -86,43 +113,18 @@ const API_BASE = process.env.REACT_APP_API_BASE;
       <br/>
       <br/>
 
-      <label className="form-control w-25" > 
+      <label > 
         <input type="checkbox" checked={done}
           onChange={() => setDone(!done)}/>
           Done
       </label>
-      <a className="btn btn-primary mt-2" href={`${ASSIGNMENT_URL}/complete/${done}`}>
-        Update Assignment State
-      </a>
+        <a className="btn btn-primary mt-2" href={`${ASSIGNMENT_URL}/complete/${done}`}>
+          Update Assignment State
+        </a>
       <br/>
       <br/>
 
 
-      <input type="text" 
-        onChange={(e) => setModule({ ...module,
-            name: e.target.value })}
-        value={module.name}/>
-      <a className="btn btn-danger ms-2" href={`${Module_URL}/name/${module.name}`}>
-        Update Module Name
-      </a>
-      <br/>
-      <br/>
-      <a className="btn btn-primary" href={`${Module_URL}`}>
-        Get Module
-      </a>
-      <a className="btn btn-success" href={`${Module_URL}/name`}>
-        Get Module Name
-      </a>
-      <br/>
-      <br/>
-      <textarea className="form-control w-50"
-        onChange={(e) => setModule({ ...module,
-            description: e.target.value })}
-        value={module.description}/>
-      <a className="btn btn-primary ms-2" href={`${Module_URL}/description/${module.description}`}>
-        Update Module Description
-      </a>
-      <br/>
       <br/>
 
     </div>

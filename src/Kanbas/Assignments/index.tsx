@@ -18,17 +18,16 @@ function Assignments() {
     const weights = [{label:"ASSIGNMENTS", weights:"40%"}, {label:"QUIZZES", weights:"10%"},
         {label:"PROJECTS", weights:"20%"},{label:"EXAMS", weights:"30%"},
     ]
-
+    
+    const dispatch = useDispatch();
     useEffect(() => {
         client.findAllData(`${client.COURSES_API}/${courseId}/assignments`).then((data)=>  {dispatch(setAssignments(data))});
         client.initializeItem(`${client.COURSES_API}/${courseId}/assignments`).then((data)=> {dispatch(setAssignment(data))});
     }, [courseId]);
-
-    const dispatch = useDispatch();
+    
     const {items} = useSelector((state: KanbasState)=> state.assignmentReducer);
     const [selectedHW, setSelectedHW] = useState({...items[0]});
    
-    
     const handleEdit = (item : any) => {
         if (Object.keys(item).length === 0) {
             client.initializeItem(`${client.COURSES_API}/${courseId}/assignments`).then((data)=> {dispatch(setAssignment(data))});
@@ -48,7 +47,6 @@ function Assignments() {
     }
     return (
         <div className="col mx-1 mt-2">
-            {/* <pre> {JSON.stringify(item,null,2)}</pre> */}
             <div className="row pb-2 border-bottom m-4">
                 <input className="border w-25 form-control ps-2 rounded-1"
                        placeholder="Search for Assignment"/>
@@ -63,7 +61,7 @@ function Assignments() {
                         to={`/Kanbas/Courses/${courseId}/Assignments/Delete`}>
                             + Edit
                     </Link>
-                    <Link className={pathname.includes("Delete")? "btn me-2 btn-sm btn-success text-white":"d-none"}
+                    <Link className={pathname.includes("Delete")? "btn me-2 btn btn-success text-white":"d-none"}
                         to={`/Kanbas/Courses/${courseId}/Assignments`}
                         >
                             Publish

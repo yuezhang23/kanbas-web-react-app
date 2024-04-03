@@ -5,25 +5,31 @@ import {FaGear} from "react-icons/fa6";
 import "../../cssSRC/index.css";
 import "../../cssSRC/module-index.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useDispatch, useSelector } from "react-redux";
+import { KanbasState } from "../../store";
+import { useEffect, } from "react";
 import * as client from "../../client";
-import { useEffect, useState } from "react";
+import { setAssignments } from "../../Redux/kanbasReducer";
+
 
 function Grades() {
-    const courseId  = useParams();
-    const [HWs, setHWS] = useState([{name : "new", _id : "-1", catalog : [{}]}]);
-    const [HW, setHW] = useState({});
-
+    const { courseId } = useParams();
+    
     useEffect(() => {
-        client.findAllData(`${client.ASSIGNMENTS_API}`).then((data)=>  setHWS(data));
-        client.initializeItem(`${client.COURSES_API}/${courseId}/assignments`).then((data)=> setHW(data));
-    }, [courseId]);
-
-    const es_id = db.enrollment.filter((enrollment : any) => enrollment.course === courseId).map((st)=>st.user);
+        client.findAllData(`${client.COURSES_API}/${courseId}/assignments`).then((data)=>  {dispatch(setAssignments(data))});
+    }, []);
+    
+    const assignments = useSelector((state: KanbasState)=> state.assignmentReducer.items);
+    const dispatch = useDispatch();
+    const es_id = db.enrollment.filter((enrollment) => enrollment.course === courseId).map((st)=>st.user);
     const es = db.users.filter((st)=>es_id.includes(st.student_id));
-    const as_cat1 = HWs.filter((name : any)=> name.name === "ASSIGNMENTS")[0].catalog;
-    const as = as_cat1.filter((assignment : any) => assignment.course === courseId);
+
+    // on click error on catalog
+    const as = [...assignments.find((i )=> i.name === "ASSIGNMENTS").catalog];
+
     return (
         <>
+            {/* <pre> {JSON.stringify(assignments,null,2) }</pre> */}
             <div className="wd-modules px-5 mt-3">
                 <div className="text-end">
                     <span className="dropdown">
@@ -70,7 +76,7 @@ function Grades() {
                         <select className="form-select border rounded-1 px-2 form-control" id="gdCheck">
                             <option>Search Assignments</option>
                             <option >All</option>
-                            {HWs.map((assignment : any) => {
+                            {assignments.map((assignment) => {
                                 return (
                                     <option >{assignment.name}</option>
                                 );})}
@@ -88,7 +94,7 @@ function Grades() {
                 <table className="table table-bordered align-middle text-center table-striped">
                     <thead className='border'>
                         <th className='align-middle'>Student Name</th>
-                        {as.map((assignment : any) => (
+                        {as.map((assignment :any) => (
                             <th className='border'>{assignment.title}<br/>{"out of 100"}</th>))}
                     </thead>
                     <tbody>
@@ -96,7 +102,7 @@ function Grades() {
                             return (
                                 <tr>
                                     <td className='text-danger'>{user.firstName} {user.lastName}</td>
-                                    {as.map((assignment :any) => {
+                                    {as.map((assignment : any) => {
                                         const grade = db.grades.find(
                                             (grade) => grade.student === user.student_id
                                                 && grade.assignment === assignment._id);
