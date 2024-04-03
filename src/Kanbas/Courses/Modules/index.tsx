@@ -1,13 +1,11 @@
-import { useLocation } from "react-router";
+import { useLocation, useParams } from "react-router";
 import ModuleList from "./List";
 import {FaCheckCircle, FaEllipsisV} from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Editor from "./Editor";
 
-
 function Modules() {
-    const {pathname} = useLocation();
-
+    const { pathname } = useLocation();
     return (
         <div className='mt-2'>
             <div className="d-flex form pb-2 border-bottom m-4">
@@ -23,7 +21,7 @@ function Modules() {
                     <a className="dropdown-item" href="#">Something else here</a>
                 </div>
                     <Link 
-                        to={`${pathname}/editCourse`} className="text-white form-control btn btn-danger" >
+                        to={`editCourse`} className="text-white form-control btn btn-danger" >
                             Module + 
                     </Link>
                 <button className="btn btn-light p-1 rounded-0" type="button"> <FaEllipsisV/> </button>

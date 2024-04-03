@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import {courseReducer, moduleReducer, assignmentReducer} from "../Redux/kanbasReducer";
+import {courseReducer,  assignmentReducer, moduleReducer} from "../Redux/kanbasReducer";
+
 
 export interface KanbasState {
   courseReducer: {

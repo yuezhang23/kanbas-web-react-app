@@ -1,21 +1,34 @@
 import "../../cssSRC/index.css";
 import "../../cssSRC/module-index.css";
 import {FaEllipsisV, FaCheckCircle, FaPlusCircle, FaGlasses, FaChevronDown} from "react-icons/fa";
-import {Link, useLocation} from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {setModule, deleteModule} from "../../Redux/kanbasReducer";
+import {deleteModule, setModule, setModules} from "../../Redux/kanbasReducer";
+import { useEffect, useState } from "react";
+import { deleteItemD, findAllData, initializeItem, setItemD } from "../../client";
 import { KanbasState } from "../../store";
-import { useState } from "react";
+
 
 function ModuleList() {
-    const {items} = useSelector((state: KanbasState) => state.moduleReducer);
+    const {courseId} = useParams();
+    const COURSES_API=  "http://localhost:4000/api/courses";
     const dispatch = useDispatch();
-    const [selectedModule, setSelectedModule] = useState(items[0]);
     const {pathname} = useLocation();
 
+    useEffect(() => {
+        findAllData(`${COURSES_API}/${courseId}/modules`).then((data)=>  {dispatch(setModules(data))});
+        initializeItem(`${COURSES_API}/${courseId}/modules`).then((data)=> {dispatch(setModule(data))});
+    }, [courseId]);
+
+    const {items} = useSelector((state: KanbasState) => state.moduleReducer)
+    const handleDeleteModule = (id:any) =>{
+        deleteItemD(`${COURSES_API}/${courseId}/modules`, id).then((status) => {dispatch(deleteModule(id))});
+    }
+    const [selectedModule, setSelectedModule] = useState({...items[0]});
+    
     return (
         <>
-            {items.map((module) => (
+            {items.map((module: any) => (
             <li className="list-group-item p-0 mx-4" onClick={() => setSelectedModule(module)}>
                 <div className='my-2 '>
                     <FaGlasses className="me-2" /> {module.name}
@@ -26,7 +39,7 @@ function ModuleList() {
                     </button>
                         <button 
                             className={pathname.includes("editCourse") ? "ms-2 btn btn-sm btn-danger" : "d-none"}
-                        onClick={() => dispatch(deleteModule(module._id))}>
+                        onClick={() => handleDeleteModule(module._id)}>
                         Deleted
                     </button>
                     <span className="float-end">

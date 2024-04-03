@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import PublishedCourse from "./Dashboard/coursePublished";
 
-function Kanbas() {
+function Kanbas() {   
     return(
         <Provider store={store}>
         <div className='d-flex'>
@@ -15,9 +15,6 @@ function Kanbas() {
                 <KanbasNavigation/>
             </div>
             <div  style={{ flexGrow: 1, zIndex:0}} >
-                {/*<div className="d-flex d-block d-md-none bg-dark py-2">*/}
-                {/*    <HeadNav/>*/}
-                {/*</div>*/}
                 <Routes>
                     <Route path="/" element={<Navigate to="Dashboard" />} />
                     <Route path="Dashboard" element={<Dashboard />} />

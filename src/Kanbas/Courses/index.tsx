@@ -13,15 +13,25 @@ import CourseDropdown from "./Navigation/courseDropdown";
 import HeadNav from "../Navigation/headNav";
 import Grades from "./Grades";
 import { KanbasState } from "../store";
-import { useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import { setItemD } from "../client";
+import { useEffect } from "react";
+import { setCourse } from "../Redux/kanbasReducer";
 
 function Courses() {
     const {courseId} = useParams();
     const { pathname } = useLocation();
-    const { items } = useSelector((state: KanbasState) => state.courseReducer);
-    const course = items.find((course) => course._id === courseId);
-
+    const dispatch = useDispatch();
+    
+    const COURSES_API=  "http://localhost:4000/api/courses";
+    
+    useEffect(() => {
+        setItemD(COURSES_API, courseId).then((data)=>  {dispatch(setCourse(data))});
+    }, [courseId]);
+    
+    const course = useSelector((state: KanbasState) => state.courseReducer.item);
+    const indexN = pathname.indexOf(String(courseId));
+    const path = pathname.substring(indexN).replace(course._id, course.name+"."+course.number);
     return (
         <>
             <div className="d-flex d-block d-md-none bg-dark text-white">
@@ -38,7 +48,7 @@ function Courses() {
             <div className="d-none d-md-block">
                  <div className="d-flex flex-row border-bottom">
                      <div className='col ms-4'>
-                         <BreadcrumbNav pathname={pathname} course={course}/>
+                         <BreadcrumbNav pathname = {path}/>
                      </div>
                      <div className='col text-end mt-2'>
                         <button type="button" className="btn btn-light p-1 ">

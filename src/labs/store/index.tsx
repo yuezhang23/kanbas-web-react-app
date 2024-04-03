@@ -11,7 +11,6 @@ export type TodoType = {
 };
 
 
-
 export interface LabState {
   helloReducer: { message: string; };
   counterReducer: { count: number; };
@@ -23,8 +22,6 @@ export interface LabState {
     todos: TodoType[];
     todo: TodoType;
   };
- 
-
 }
 
 const store = configureStore({

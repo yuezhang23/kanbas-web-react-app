@@ -4,7 +4,8 @@ import DropdownEdit from "../dropdownEdit";
 import {FaCheckCircle} from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { KanbasState } from "../../store";
-import { addAssignment, setAssignment, updateAssignment } from "../../Redux/kanbasReducer";
+import { addAssignment, setAssignment, updateAssignment, } from "../../Redux/kanbasReducer";
+import { addNewItemD, updateSubItemD } from "../../client";
 
 function AssignmentEditor() {
     const {pathname} = useLocation();
@@ -15,6 +16,7 @@ function AssignmentEditor() {
     const [availFromDate, modFromDate] = useState(new Date());
     const [availToDate, modToDate] = useState(new Date());
     const [availDue, modDue] = useState(new Date());
+    
     const dateToString = (date: Date) => {
         return `${date.getFullYear()}-${date.getMonth() + 1 < 10 ? 0 : ""}${
           date.getMonth() + 1
@@ -22,11 +24,17 @@ function AssignmentEditor() {
       };
     const newDescription = `Available: ${dateToString(availFromDate)} ~ ${dateToString(availToDate)} | Due: ${dateToString(availDue)} | Points: ${points}`;
 
-    // const navigate = useNavigate();
-    // const handleSave = () => {
-    //     console.log("Actually saving assignment TBD in later assignments");
-    //     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
-    // };
+    const COURSES_API=  "http://localhost:4000/api/courses";
+
+    const handleUpdateAssignmentSubitem = (subItem : any, sid :any) =>{
+        updateSubItemD(`${COURSES_API}/${courseId}/assignments`, subItem, sid).then((item)=> {dispatch(updateAssignment(item))});
+    }
+
+    const handleAddAssignment = () => {
+        addNewItemD(`${COURSES_API}/${courseId}/assignments`, item).then((i)=> {dispatch(addAssignment(i))});
+    }
+
+
     return (
         <div className='wd-modules mx-5 mt-5'>
             <div className="text-success pb-5">
@@ -56,7 +64,8 @@ function AssignmentEditor() {
 
                 <Link to={`/Kanbas/Courses/${courseId}/Assignments`}
                       className="my-3 btn mx-2 btn-success"
-                      onClick={(e) => pathname.includes("Add") ? dispatch(addAssignment(item)) :dispatch(updateAssignment(item))}>
+                      onClick={(e) => pathname.includes("Add") ? handleAddAssignment() :handleUpdateAssignmentSubitem(item, item.catalog[0]._id)}
+                      >
                     Save
                 </Link>
                 <Link to={`/Kanbas/Courses/${courseId}/Assignments`}

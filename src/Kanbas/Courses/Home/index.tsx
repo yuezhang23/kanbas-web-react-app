@@ -5,7 +5,7 @@ import CourseStatus from "./Status";
 import Modules from "../Modules";
 
 
-function CourseHome() {
+function CourseHome() {  
     return (
         <div className="d-flex wd-modules">
             <div className="flex-fill">

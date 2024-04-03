@@ -2,11 +2,9 @@ import { FaTachometerAlt, FaRegUserCircle, FaBook, FaRegCalendarAlt,
     FaHistory, FaVideo, FaQuestion, FaAddressBook } from "react-icons/fa";
 import "../cssSRC/module-index.css";
 import "../cssSRC/index.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import {Link} from "react-router-dom";
 import {HiMiniBars3} from "react-icons/hi2";
-
-
 
 function KanbasDropdown() {
     const links = [
@@ -21,10 +19,11 @@ function KanbasDropdown() {
     ];
     return (
         <div className='wd-dropdown'>
-            <button className="btn" type="button" data-bs-toggle="dropdown">
+            <button className="btn" type="button" data-bs-toggle="dropdown" 
+             id="kanbasDW">
                 <HiMiniBars3 color={'white'}/>
             </button>
-            <div className='dropdown-menu wd-full-frame'>
+            <div className='dropdown-menu wd-full-frame' aria-labelledby="kanbasDW">
                 {links.map((link) => (
                     <a className='dropdown-item'>
                         <Link to={`/Kanbas/${link.label}`} > {link.icon} <br/> {link.label} </Link>
