@@ -26,12 +26,6 @@ const setItem = (state :any, action :any) => {
     state.item = action.payload;
 };
 
-const updateAssignmentSingleItem = (state :any, action :any) => {
-    const oriItem = state.items.filter((item :any) => item._id === action.payload._id)[0];
-    oriItem.catalog = oriItem.catalog.map((term: any) => term._id === action.payload.catalog[0]._id ? action.payload.catalog[0]: term);
-    state.items = state.items.map((item :any) => item._id === oriItem._id ? oriItem: item);
-};
-
 
 const courseSlice =  createSlice({
     name: "course",
@@ -67,7 +61,6 @@ const assignmemtSlice =  createSlice({
     initialState : initialState,
     reducers : {
         addAssignment: addItem,
-        // updateAssignmentSingle: updateAssignmentSingleItem,
         updateAssignment: updateItem,
         deleteAssignment: deleteItem,
         setAssignment: setItem,

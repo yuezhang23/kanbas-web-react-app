@@ -47,6 +47,7 @@ function Assignments() {
     }
     return (
         <div className="col mx-1 mt-2">
+            {/* <pre>{JSON.stringify(items, null,2)}</pre> */}
             <div className="row pb-2 border-bottom m-4">
                 <input className="border w-25 form-control ps-2 rounded-1"
                        placeholder="Search for Assignment"/>
@@ -74,57 +75,61 @@ function Assignments() {
             </div>
             <div className='row ps-2'>
                 <ul className="list-group rounded-0 wd-modules" >
-                    {items != undefined && items.map((assignment) => (
-                        <li className="list-group-item p-0 mx-4" onClick={() => setSelectedHW(assignment)} >
-                            <div className='my-2 wd-fg-black'>
-                                <FaEllipsisV className="me-2" />
-                                <FaChevronDown className="me-2"/>
-                                {assignment.name}
-                                <span className="d-inline-flex float-end">
-                                    <button className={pathname.includes("Delete")? "btn me-2 btn-sm btn-primary":"d-none"}
-                                    onClick={()=> handleDeleteAssignemnt(assignment._id, assignment._id)}
-                                    >
-                                        x
-                                    </button>
-                                    <span className="float-start border rounded-4 px-1 me-2">
-                                        {weights.filter((i)=> i.label === assignment.name).map((i)=>i.weights)}
-                                        of Total
-                                    </span>
-                                    +
-                                    <DropdownHW/>
-                                </span>
-                            </div>
-                            <ul className="list-group rounded-0">
-                                { selectedHW._id ==  assignment._id && assignment.catalog.map((cat:any) => (
-                                <li className="list-group-item">
-                                    <div className='d-flex flex-row'>
-                                        <FaEllipsisV className='mt-1 me-3'/>
-                                        <FaBook className="text-success mt-1 me-3"/>
-                                        <div className='flex-grow-1'>
-                                            <Link style={colorBlack}
-                                                to={`/Kanbas/Courses/${courseId}/Assignments/Edit/${assignment._id}:${cat._id}`}
-                                                onClick={() => handleEdit({...assignment, catalog: [cat]})}>{cat.title}
-                                                <br/>
-                                            </Link>
-                                            <div className='small'>
-                                                {cat.description}
-                                            </div>
-                                        </div>
-                                        <span className="float-end">
-                                            <button className={pathname.includes("Delete")? "btn btn-sm btn-primary me-2":"d-none"}
-                                                onClick={()=> handleDeleteAssignemnt(assignment._id, cat._id)}
-                                                    >
-                                                        x
+                    {items != undefined && items.map((assignment) => {
+                        if (assignment.catalog.length > 0) {
+                            return (                      
+                                <li className="list-group-item p-0 mx-4" onClick={() => setSelectedHW(assignment)} >
+                                    <div className='my-2 wd-fg-black'>
+                                        <FaEllipsisV className="me-2" />
+                                        <FaChevronDown className="me-2"/>
+                                        {assignment.name}
+                                        <span className="d-inline-flex float-end">
+                                            <button className={pathname.includes("Delete")? "btn me-2 btn-sm btn-primary":"d-none"}
+                                            onClick={()=> handleDeleteAssignemnt(assignment._id, assignment._id)}
+                                            >
+                                                x
                                             </button>
-                                            <FaCheckCircle 
-                                                className={pathname.includes("Delete")? "d-none":"text-success"}/>
-                                            <FaEllipsisV className="ms-2" />
+                                            <span className="float-start border rounded-4 px-1 me-2">
+                                                {weights.filter((i)=> i.label === assignment.name).map((i)=>i.weights)}
+                                                of Total
+                                            </span>
+                                            +
+                                            <DropdownHW/>
                                         </span>
                                     </div>
-                                </li>))}
-                            </ul>
-                        </li>
-                    ))}
+                                    <ul className="list-group rounded-0">
+                                        { selectedHW._id ==  assignment._id && assignment.catalog.map((cat:any) => (
+                                        <li className="list-group-item">
+                                            <div className='d-flex flex-row'>
+                                                <FaEllipsisV className='mt-1 me-3'/>
+                                                <FaBook className="text-success mt-1 me-3"/>
+                                                <div className='flex-grow-1'>
+                                                    <Link style={colorBlack}
+                                                        to={`/Kanbas/Courses/${courseId}/Assignments/Edit/${assignment._id}:${cat._id}`}
+                                                        onClick={() => handleEdit({...assignment, catalog: [cat]})}>{cat.title}
+                                                        <br/>
+                                                    </Link>
+                                                    <div className='small'>
+                                                        {cat.description}
+                                                    </div>
+                                                </div>
+                                                <span className="float-end">
+                                                    <button className={pathname.includes("Delete")? "btn btn-sm btn-primary me-2":"d-none"}
+                                                        onClick={()=> handleDeleteAssignemnt(assignment._id, cat._id)}
+                                                            >
+                                                                x
+                                                    </button>
+                                                    <FaCheckCircle 
+                                                        className={pathname.includes("Delete")? "d-none":"text-success"}/>
+                                                    <FaEllipsisV className="ms-2" />
+                                                </span>
+                                            </div>
+                                        </li>))}
+                                    </ul>
+                                </li>);
+                            }
+                        }
+                )}
                 </ul>
             </div>
         </div>

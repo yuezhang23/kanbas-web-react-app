@@ -26,7 +26,7 @@ function AssignmentEditor() {
 
 
     const handleUpdateAssignmentSubitem = (subItem : any, sid :any) =>{
-        client.updateSubItemD(`${client.COURSES_API}/${courseId}/assignments`, subItem, sid).then((item)=> {dispatch(updateAssignment(item))});
+        client.updateSubItemD(`${client.COURSES_API}/${courseId}/assignments`, subItem, sid).then((i)=> {dispatch(updateAssignment(i))});
     }
 
     const handleAddAssignment = () => {
