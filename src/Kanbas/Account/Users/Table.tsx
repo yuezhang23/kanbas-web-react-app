@@ -88,11 +88,11 @@ export default function UserTable() {
             <th>&nbsp;</th>
           </tr>
           <tr>
-            <td>
-              <input value={user.password} className="form form-control" onChange={(e) =>
-                setUser({ ...user, password: e.target.value })}/>
-              <input value={user.username} className="form form-control" onChange={(e) =>
+            <td className="d-flex form">
+              <input placeholder= "username" value={user.username} className="form-control" onChange={(e) =>
                 setUser({ ...user, username: e.target.value })}/>
+              <input placeholder="password" value={user.password} className="form-control" onChange={(e) =>
+                setUser({ ...user, password: e.target.value })}/>
             </td>
             <td>
               <input value={user.firstName} className="form form-control" onChange={(e) =>
