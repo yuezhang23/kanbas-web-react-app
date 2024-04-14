@@ -22,7 +22,7 @@ function Grades() {
     const assignments = useSelector((state: KanbasState)=> state.assignmentReducer.items);
     const dispatch = useDispatch();
     const es_id = db.enrollment.filter((enrollment) => enrollment.course === courseId).map((st)=>st.user);
-    const es = db.users.filter((st)=>es_id.includes(st.student_id));
+    const es = db.users.filter((st)=> es_id.includes(st.id));
 
     // on click error on catalog
     const as = [...assignments.find((i )=> i.name === "ASSIGNMENTS").catalog];
@@ -104,7 +104,7 @@ function Grades() {
                                     <td className='text-danger'>{user.firstName} {user.lastName}</td>
                                     {as.map((assignment : any) => {
                                         const grade = db.grades.find(
-                                            (grade) => grade.student === user.student_id
+                                            (grade) => grade.student === user.id
                                                 && grade.assignment === assignment._id);
                                         return (
                                             <td>{(grade?.grade + '%') || " "}</td>

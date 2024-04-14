@@ -10,6 +10,7 @@ import { deleteAssignment, setAssignment, setAssignments, updateAssignment} from
 import { useEffect, useState } from "react";
 import * as client from "../client";
 
+
 function Assignments() {
     const { courseId } = useParams();
     const {pathname} = useLocation();

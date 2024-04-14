@@ -1,51 +1,84 @@
+import { useEffect, useState } from "react";
+import * as client from "../Users/client"
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
+
 function Profile() {
+    const [profile, setProfile] = useState({ username: "", password: "", 
+      firstName: "", lastName: "", dob: "", email: "", role: "USER" });
+    const navigate = useNavigate();
+    const fetchProfile = async () => {
+      const account = await client.displayProfile();
+      if (account) {
+        setProfile(account);
+      } 
+    };
+    
+    useEffect(() => {
+      fetchProfile();
+    }, []);
+  
+    const dateObjectToHtmlDateString = (date: Date) => {
+      return `${date.getFullYear()}-${date.getMonth() + 1 < 10 ? 0 : ""}${
+        date.getMonth() + 1
+      }-${date.getDate() + 1 < 10 ? 0 : ""}${date.getDate() + 1}`;
+    };
+
+    const save = async () => {
+      await client.updateUser(profile);
+    };
+
+    const signout = async () => {
+      await client.signout();
+        navigate("/Kanbas/Account");
+    };
+
+
     return (
-    <div className="d-flex wd-modules">
-        <div className="flex-grow-1 ms-2">
-            <div className="d-block d-md-none bg-dark ">
-                <div className="d-flex">
-                    <div>
-                        <button className="btn my-2" type="button" data-bs-toggle="dropdown">
-                            <i className="fa fa-tasks fa-list fa-2x me-2" ></i> </button>
-                        <script>
-                            document.write(kanbasNaviS);
-                        </script>
-                    </div>
-                    <div className="flex-grow-1 ">
-                        <p className="text-end">
-                            <button className="btn my-2" type="button" data-bs-toggle="collapse" data-bs-target="#multiMenu2" aria-expanded="false" aria-controls="multiMenu2">
-                                <i className="fa fa-tripadvisor fa-2x" ></i>
-                                <i className="fa fa-chevron-down fa-1x" ></i></button>
-                        </p>
-                        <div className="collapse " id="multiMenu2">
-                            <div className="card card-body">
-                                <script>
-                                    document.write(courseNaviC);
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="d-none d-md-block py-3 border-bottom ">
-                <span className="d-flex flex-row">
-                    <div>
-                        <nav aria-label="breadcrumb">
-                            <ol className="breadcrumb">
-                                <li className="breadcrumb-item active" aria-current="page">
-                                Yue Zhang's Profile </li>
-                            </ol>
-                        </nav>
-                    </div>
-                    <span className="flex-grow-1 text-end me-2">
-                        <button type="button" className="btn btn-secondary p-1">
-                            <i className="fa fa-tripadvisor fa-1x"></i> Student View
-                        </button>
-                    </span>
-                </span>
-            </div>
-        </div>
-    </div>
+      <div>
+        {/* <pre>{JSON.stringify(profile)}</pre> */}
+        <span className="d-flex">
+          <h2>Profile</h2>
+          <button onClick={save} className="btn btn-success ms-2 ">
+            Save
+          </button>
+          <button onClick={signout} className="btn btn-danger ms-2">
+            Signout
+          </button>
+        </span>
+        <hr></hr>
+        <Link to="/Kanbas/Account/Admin/Users"
+          className="btn btn-warning form-control w-50">
+          All Users
+        </Link>
+        {profile && (
+          <div>
+            <input value={profile.username} className="form-control w-50" onChange={(e) =>
+              setProfile({ ...profile, username: e.target.value })}/>
+            <input value={profile.password} className="form-control w-50" onChange={(e) =>
+              setProfile({ ...profile, password: e.target.value })}/>
+            <input value={profile.firstName} className="form-control w-50" onChange={(e) =>
+              setProfile({ ...profile, firstName: e.target.value })}/>
+            <input value={profile.lastName} className="form-control w-50" onChange={(e) =>
+              setProfile({ ...profile, lastName: e.target.value })}/>
+            <input value={dateObjectToHtmlDateString(new Date(profile.dob))} type="date" className="form-control w-50" onChange={(e) =>
+              setProfile({ ...profile, dob: e.target.value })}/>
+            <input value={profile.email} className="form-control w-50" onChange={(e) =>
+              setProfile({ ...profile, email: e.target.value })}/>
+
+            <select className="form-control w-50" onChange={(e) =>
+                setProfile({ ...profile, role: e.target.value })} >
+                <option value={profile.role} selected>{profile.role}</option>
+                <option value="USER" >USER</option>
+                <option value="ADMIN">ADMIN</option>
+                <option value="FACULTY">FACULTY</option>
+                <option value="STUDENT" >STUDENT</option>
+            </select>
+          </div>
+        )}
+      </div>
+  
     );
 }
 export default Profile
+

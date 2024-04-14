@@ -1,26 +1,24 @@
-import {Navigate, Route, Routes} from "react-router-dom";
+import {Navigate, Route, Routes, useLocation, useParams} from "react-router-dom";
 import "../cssSRC/index.css";
 import "../cssSRC/module-index.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HeadNav from "../Navigation/headNav";
 import AccountNavigation from "./Navigation";
-import Profile from "./Profile/Content";
-
+import Profile from "./Profile";
+import UserTable from "./Users/Table";
 
 function Account() {
-    // const { personalID } = useParams();
-    // const { pathname } = useLocation();
+    const { personalID } = useParams();
+    const { pathname } = useLocation();
     // const pID = accounts.filter((account) => account.account_id === personalID)[0];
 
     return (
         <>
             <div className="d-flex d-block d-md-none bg-dark text-white py-2">
-                <div className="col">
                     <HeadNav/>
-                </div>
-                {/* <div className="col text-center">
+                <span className="col text-center">
                     {pathname.substring(pathname.lastIndexOf('/') +1 )}
-                </div> */}
+                </span>
              
             </div>
             <div className='d-flex mt-4'>
@@ -31,11 +29,12 @@ function Account() {
                     style={{left: "320px", top: "120px" }} >
                     <Routes>
                         <Route path="/" element={<Navigate to="Profile" />} />
-                        <Route path="Profile" element={<Profile/>} />      
+                        <Route path="/Profile" element={<Profile/>} />      
                         <Route path="Notification" element={<h1>Notification</h1>} />
                         <Route path="ePortfolios" element={<h1>ePortfolios</h1>} />
                         <Route path="Files" element={<h1>Files</h1>} />
                         <Route path="Settings" element={<h1>Settings</h1>} />
+                        <Route path="Admin/Users" element={<UserTable/>} />
                     </Routes>
                 </div>
             </div>

@@ -1,10 +1,14 @@
 import axios from "axios";
+// axios.defaults.withCredentials = true;
+// axios.defaults.baseURL = "process.env.FRONTEND_URL"
+
 const API_BASE = process.env.REACT_APP_API_BASE;
 
 export const COURSES_API = `${API_BASE}/api/courses`;
 export const MODULES_API = `${API_BASE}/api/modules`;
 export const ASSIGNMENTS_API =`${API_BASE}/api/assignments`;
 
+axios.defaults.baseURL = API_BASE;
 
 export const findAllData = async (locIP : string) => {
     const response = await axios.get(locIP);

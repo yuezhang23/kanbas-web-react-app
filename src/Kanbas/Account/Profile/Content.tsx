@@ -4,8 +4,7 @@ function Content() {
         <div className="col wd-modules">
             <div className="row row-cols-1">
                 <div className="fs-4">
-                    Yue Zhang's Profile
-                    <a href="/kanbas/account/profile/edit/screen.html" className="btn btn-secondary p-1 rounded-1 float-end"
+                    <a href="/kanbas/account/profile/edit/screen.html" className="btn btn-primary p-1 rounded-1 float-end"
                        role="button"><i className="fa fa-pencil"></i> Edit profile</a>
                 </div>
             </div>

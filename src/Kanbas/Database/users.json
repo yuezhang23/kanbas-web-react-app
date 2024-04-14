@@ -1,92 +1,233 @@
 [
   {
-    "_id": "1",
-    "student_id": "121",
+    "id": "121",
+    "username": "iron_man",
+    "password": "stark123",
+    "firstName": "Tony",
+    "lastName": "Stark",
+    "email": "tony@stark.com",
+    "dob": "1970-05-29",
+    "role": "STUDENT"
+  },
+  {
+    "id": "122",
+    "username": "dark_knight",
+    "password": "wayne123",
+    "firstName": "Bruce",
+    "lastName": "Wayne",
+    "email": "bruce@wayne.com",
+    "dob": "1972-02-19",
+    "role": "STUDENT"
+  },
+  {
+    "id": "123",
+    "username": "capt_america",
+    "password": "rogers123",
+    "firstName": "Steve",
+    "lastName": "Rogers",
+    "email": "steve@avengers.com",
+    "dob": "1918-07-04",
+    "role": "STUDENT"
+  },
+  {
+    "id": "124",
+    "username": "black_widow",
+    "password": "romanoff123",
+    "firstName": "Natasha",
+    "lastName": "Romanoff",
+    "email": "natasha@avengers.com",
+    "dob": "1984-11-22",
+    "role": "STUDENT"
+  },
+  {
+    "id": "125",
+    "username": "thor_odinson",
+    "password": "mjolnir123",
+    "firstName": "Thor",
+    "lastName": "Odinson",
+    "email": "thor@asgard.com",
+    "dob": "1982-05-25",
+    "role": "STUDENT"
+  },
+  {
+    "id": "126",
+    "username": "hulk_smash",
+    "password": "banner123",
+    "firstName": "Bruce",
+    "lastName": "Banner",
+    "email": "bruce@avengers.com",
+    "dob": "1969-12-18",
+    "role": "STUDENT"
+  },
+  {
+    "id": "127",
+    "username": "ring_bearer",
+    "password": "shire123",
+    "firstName": "Frodo",
+    "lastName": "Baggins",
+    "email": "frodo@shire.com",
+    "dob": "1968-09-22",
+    "role": "FACULTY"
+  },
+  {
+    "id": "128",
+    "username": "strider",
+    "password": "aragorn123",
+    "firstName": "Aragorn",
+    "lastName": "Elessar",
+    "email": "aragorn@gondor.com",
+    "dob": "1989-03-01",
+    "role": "FACULTY"
+  },
+  {
+    "id": "129",
+    "username": "elf_archer",
+    "password": "legolas123",
+    "firstName": "Legolas",
+    "lastName": "Greenleaf",
+    "email": "legolas@mirkwood.com",
+    "dob": "1979-07-15",
+    "role": "FACULTY"
+  },
+
+  {
+    "id": "1",
+    "username": "jane_001",
+    "password": "legolas123",
     "firstName": "Alice",
-    "lastName": "Wonderland"
+    "lastName": "Wonderland",
+    "dob": "1918-07-04",
+    "role": "STUDENT"
+
   },
   {
-    "_id": "2",
-    "student_id": "122",
+    "id": "2",
+    "username": "peter_pan",
+    "password": "legolas123",
     "firstName": "Prince",
-    "lastName": "Leia"
+    "lastName": "Leia",
+    "dob": "1918-07-04",
+    "role": "STUDENT"
+
   },
   {
-    "_id": "3",
-    "student_id": "123",
+    "id": "3",
+    "username": "hunter_b",
+    "password": "legolas123",
     "firstName": "Luke",
-    "lastName": "Skywalker"
+    "lastName": "Skywalker",
+    "dob": "1918-07-04",
+    "role": "STUDENT"
+
   },
   {
-    "_id": "4",
-    "student_id": "124",
+    "id": "4",
+    "username": "007_bond",
+    "password": "legolas123",
     "firstName": "Han",
-    "lastName": "Solo"
+    "lastName": "Solo",
+    "dob": "1918-07-04",
+    "role": "STUDENT"
+
   },
   {
-    "_id": "5",
-    "student_id": "125",
+    "id": "5",
+    "username": "legend_five",
+    "password": "legolas123",
     "firstName": "Lando",
-    "lastName": "Calresian"
+    "lastName": "Calresian",
+    "dob": "1918-07-04",
+    "role": "STUDENT"
+
   },
   {
-    "_id": "6",
-    "student_id": "126",
+    "id": "6",
+    "username": "chris_never",
+    "password": "legolas123",
     "firstName": "Boba",
-    "lastName": "Fet"
+    "lastName": "Fet",
+    "dob": "1918-07-04",
+    "role": "STUDENT"
   },
   {
-    "_id": "7",
-    "student_id": "127",
+    "id": "7",
+    "username": "third_rasor",
+    "password": "legolas123",
     "firstName": "Darth",
-    "lastName": "Vader"
+    "lastName": "Vader",
+    "dob": "1918-07-04",
+    "role": "STUDENT"
   },
   {
-    "_id": "8",
-    "student_id": "128",
+    "id": "8",
+    "username": "elf_ll",
+    "password": "legolas123",
     "firstName": "Obi-Wan",
-    "lastName": "Kenobi"
+    "lastName": "Kenobi",
+    "dob": "1918-07-04",
+    "role": "STUDENT"
   },
   {
-    "_id": "9",
-    "student_id": "129",
+    "id": "9",
+    "username": "nobody_see",
+    "password": "legolas123",
     "firstName": "R2",
-    "lastName": "D2"
+    "lastName": "D2",
+    "dob": "1918-07-04",
+    "role": "STUDENT"
   },
   {
-    "_id": "10",
-    "student_id": "130",
+    "id": "10",
+    "username": "need_peanut",
+    "password": "legolas123",
     "firstName": "C",
-    "lastName": "3PO"
+    "lastName": "3PO",
+    "dob": "1918-07-04",
+    "role": "STUDENT"
   },
   {
-    "_id": "11",
-    "student_id": "131",
+    "id": "11",
+    "username": "harry_potter11",
+    "password": "legolas123",
     "firstName": "Yoda",
-    "lastName": "He"
+    "lastName": "He",
+    "dob": "1918-07-04",
+    "role": "STUDENT"
   },
   {
-    "_id": "12",
-    "student_id": "132",
+    "id": "12",
+    "username": "ron_love_penguin",
+    "password": "legolas123",
     "firstName": "Admiral",
-    "lastName": "Johnson"
+    "lastName": "Johnson",
+    "dob": "1918-07-04",
+    "role": "STUDENT"
   },
   {
-    "_id": "13",
-    "student_id": "133",
+    "id": "13",
+    "username": "littlebirdM",
+    "password": "legolas123",
     "firstName": "Jimmy",
-    "lastName": "Choo"
+    "lastName": "Choo",
+    "dob": "1918-07-04",
+    "role": "STUDENT"
   },
   {
-    "_id": "14",
-    "student_id": "134",
+    "id": "14",
+    "username": "ignoreIrony",
+    "password": "legolas123",
     "firstName": "Lucy",
-    "lastName": "Li"
+    "lastName": "Li",
+    "dob": "1918-07-04",
+    "role": "STUDENT"
   },
   {
-    "_id": "15",
-    "student_id": "135",
+    "id": "15",
+    "username": "loveKetty1",
+    "password": "legolas123",
     "firstName": "Charlotte",
-    "lastName": "Lohan"
+    "lastName": "Lohan",
+    "dob": "1918-07-04",
+    "role": "STUDENT"
   }
 ]
