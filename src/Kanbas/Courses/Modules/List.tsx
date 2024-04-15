@@ -14,7 +14,7 @@ function ModuleList() {
     const {pathname} = useLocation();
 
     const dispatch = useDispatch();
-    const {items} = useSelector((state: KanbasState) => state.moduleReducer)
+    const items = useSelector((state: KanbasState) => state.moduleReducer.items)
 
     useEffect(() => {
         client.findAllData(`${client.COURSES_API}/${courseId}/modules`).then((data)=>  {dispatch(setModules(data))});
