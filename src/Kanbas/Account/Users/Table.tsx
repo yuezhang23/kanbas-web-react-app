@@ -21,6 +21,9 @@ export default function UserTable() {
     } catch (err) {
       console.log(err);
     }
+    setUser({
+      _id: "", username: "", password: "", firstName: "",
+      lastName: "", role: "USER" })
   };
 
   const deleteUser = async (user : any) => {
