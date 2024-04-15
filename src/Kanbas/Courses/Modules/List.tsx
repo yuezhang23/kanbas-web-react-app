@@ -11,34 +11,37 @@ import { KanbasState } from "../../store";
 
 function ModuleList() {
     const {courseId} = useParams();
-    const dispatch = useDispatch();
     const {pathname} = useLocation();
+
+    const dispatch = useDispatch();
+    const {items} = useSelector((state: KanbasState) => state.moduleReducer)
 
     useEffect(() => {
         client.findAllData(`${client.COURSES_API}/${courseId}/modules`).then((data)=>  {dispatch(setModules(data))});
         client.initializeItem(`${client.COURSES_API}/${courseId}/modules`).then((data)=> {dispatch(setModule(data))});
     }, [courseId]);
 
-    const {items} = useSelector((state: KanbasState) => state.moduleReducer)
     const handleDeleteModule = (id:any) =>{
         client.deleteItemD(`${client.COURSES_API}/${courseId}/modules`, id).then((status) => {dispatch(deleteModule(id))});
     }
+
     const [selectedModule, setSelectedModule] = useState({...items[0]});
     
     return (
         <>
-            {items.map((module: any) => (
+            {/* <pre>{JSON.stringify(items, null, 2)}</pre> */}
+            {items && items.map((module: any) => (
             <li className="list-group-item p-0 mx-4" onClick={() => setSelectedModule(module)}>
                 <div className='my-2 '>
                     <FaGlasses className="me-2" /> {module.name}
                     <button 
                         className={pathname.includes("editCourse") ? "ms-2 btn btn-sm btn-primary" : "d-none"}
-                        onClick={() => dispatch(setModule({...module}))}>
+                        onClick={(event) => { event.preventDefault(); dispatch(setModule({...module}));}}>
                         Edit
                     </button>
                         <button 
                             className={pathname.includes("editCourse") ? "ms-2 btn btn-sm btn-danger" : "d-none"}
-                        onClick={() => handleDeleteModule(module._id)}>
+                        onClick={(event) => {event.preventDefault(); handleDeleteModule(module.mid);}}>
                         Deleted
                     </button>
                     <span className="float-end">
@@ -52,9 +55,9 @@ function ModuleList() {
                         {module.description}
                     </div>
                 </div>
-                {selectedModule._id === module._id && (
+                {selectedModule.mid === module.mid && (
                     <ul id= "1tier" className="list-group">
-                        {module.lessons.map((lesson : any, step:number) => (
+                        {module.lessons && module.lessons.map((lesson : any, step:number) => (
                             <li key={step} className="list-group-item pt-3">
                                 <FaEllipsisV className="me-2" />
                                 {lesson.lname}
@@ -74,7 +77,7 @@ function ModuleList() {
                             </li>
                         ))}
                     </ul>
-                )}
+                 )} 
             </li>
             ))}
         </>

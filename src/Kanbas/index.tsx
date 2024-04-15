@@ -8,6 +8,7 @@ import store from "./store";
 import PublishedCourse from "./Dashboard/coursePublished";
 import Signup from "./Account/Users/Signup";
 import Signin from "./Account/Users/Signin";
+import Module from "module";
 
 function Kanbas() {   
     return(

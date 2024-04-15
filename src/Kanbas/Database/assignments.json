@@ -1,6 +1,6 @@
 [{
   "name": "ASSIGNMENTS",
-  "id": "A001",
+  "aid": "A001",
   "catalog": [
     { "id": "A101", "title": "A1 - ENV + SETUP", "course": "RS101",
       "description": "Week 0 SETUP - Week starting on Monday September 5th Module |\nDue Sep18, 2022 at 11:59pm | 100ps " },
@@ -45,7 +45,7 @@
   },
   {
     "name": "QUIZZES",
-    "id": "A002",
+    "aid": "A002",
     "catalog": [
       { "id": "Q101", "title": "Q1 - HTML", "course": "RS101", "description": "Multiple Modules | Not available yet" },
       { "id": "Q102", "title": "Q2 - CSS", "course": "RS101", "description": "Multiple Modules | Not available yet" },
@@ -70,7 +70,7 @@
   },
   {
     "name": "PROJECTS",
-    "id": "A003",
+    "aid": "A003",
     "catalog": [
       { "id": "P101", "title": "Project", "course": "RS101", "description": "Multiple Modules | Not available yet " },
       { "id": "P204", "title": "Combustion Analysis", "course": "RS102", "description": " " },
@@ -85,7 +85,7 @@
   },
   {
     "name": "EXAMS",
-    "id": "A004",
+    "aid": "A004",
     "catalog": [
       { "id": "E101", "title": "Midterm exam", "course": "RS101", "description": "Multiple Modules | Not available yet " },
       { "id": "E102", "title": "Final exam", "course": "RS101", "description": "Multiple Modules | Not available yet " },

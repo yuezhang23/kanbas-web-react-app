@@ -26,7 +26,7 @@ function AssignmentEditor() {
 
 
     const handleUpdateAssignmentSubitem = (subItem : any, sid :any) =>{
-        client.updateSubItemD(`${client.COURSES_API}/${courseId}/assignments`, subItem, sid).then((i)=> {dispatch(updateAssignment(i))});
+        client.updateSubItemD(`${client.COURSES_API}/${courseId}/assignments`, subItem, subItem.aid, sid).then((i)=> {dispatch(updateAssignment(i))});
     }
 
     const handleAddAssignment = () => {
@@ -63,7 +63,7 @@ function AssignmentEditor() {
 
                 <Link to={`/Kanbas/Courses/${courseId}/Assignments`}
                       className="my-3 btn mx-2 btn-success"
-                      onClick={(e) => pathname.includes("Add") ? handleAddAssignment() :handleUpdateAssignmentSubitem(item, item.catalog[0]._id)}
+                      onClick={(e) => pathname.includes("Add") ? handleAddAssignment() :handleUpdateAssignmentSubitem(item, item.catalog[0].id)}
                       >
                     Save
                 </Link>
@@ -146,7 +146,7 @@ function AssignmentEditor() {
                                 <button id="btas"
                                         className="btn btn-secondary btn-sm p-1 rounded-1">Everyone +
                                     </button>
-                                </span>
+                                </span>``
                             </div>
                             <div className="form-group m-1 p-2">
                                 <label className="fw-bold" htmlFor="due-date"> Due </label>

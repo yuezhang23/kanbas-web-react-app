@@ -19,12 +19,12 @@ function Editor() {
     };
 
     const handleUpdateModule = () =>{
-        client.updateItemD(`${client.COURSES_API}/${courseId}/modules`, item).then((status)=> {dispatch(updateModule(item))});
+        client.updateItemD(`${client.COURSES_API}/${courseId}/modules`, item.mid, item).then((status)=> {dispatch(updateModule(item))});
         client.initializeItem(`${client.COURSES_API}/${courseId}/modules`).then((item)=> {dispatch(setModule(item))});
     }
 
     const handleUpdateLesson = (newLesson : any) =>{
-        const les =  item.lessons.map((lesson : any) => lesson._id == newLesson._id ? newLesson : lesson);
+        const les =  item.lessons.map((lesson : any) => lesson.lid == newLesson.lid ? newLesson : lesson);
         dispatch(setModule({...item, lessons : les}));
     }
 

@@ -77,8 +77,8 @@ export default function UserTable() {
         <option value="STUDENT">Student</option>
       </select>
 
-      <h1 className="mx-4">User Table</h1>
-      <table className="table mx-4 table-responsive">
+      <h1 >User Table</h1>
+      <table className="table  table-responsive">
         <thead>
           <tr>
             <th>Username</th>

@@ -8,16 +8,15 @@ import { KanbasState } from "../store";
 import * as client from "../client";
 import { useEffect } from "react";
 
-function PublishedCourse() {
-   
+function PublishedCourse() { 
     const dispatch = useDispatch();
     const { pathname}= useLocation();
-
+    
     useEffect(() => {
         client.findAllData(client.COURSES_API).then((data)=>  {dispatch(setCourses(data))});
         client.initializeItem(client.COURSES_API).then((data)=> {dispatch(setCourse(data))});
     }, [client.COURSES_API]);
-       
+    
     const handleDeleteCourse = (id:any) =>{
         client.deleteItemD(client.COURSES_API, id).then((status) => {dispatch(deleteCourse(id))});
     }
@@ -29,22 +28,22 @@ function PublishedCourse() {
             <div className="row">
                 <div className="row row-cols-1 row-cols-md-5 g-3">
                     {courses.map((course : any) => (
-                        <div key={course._id} className="col" style={{ width: 300}}>
+                        <div key={course.cid} className="col" style={{ width: 300}}>
                             <div className="card" style={{ height: 300}}>
-                                <img src={`/libs/images/${course.image}`} className="card-img-top"
+                                <img src={`/libs/images/${course.image? course.image : "6.png"}`} className="card-img-top"
                                      style={{height:150}}/>
                                 <div className="card-body text-wrap">
-                                    <Link className="card-title" to={`/Kanbas/Courses/${course._id}/Home`}
+                                    <Link className="card-title" to={`/Kanbas/Courses/${course.cid}/Home`}
                                           style={{ textDecoration: "none", color: "navy", fontWeight: "bold" }}>
                                         {course.name}.{course.number}                                 
                                     </Link> 
                                     
-                                    <p className="card-text">{course.description}</p>
+                                    <p className="card-text text-truncate">{course.description}</p>
                                     <button 
                                     className={pathname.includes("Courses") ? "d-none" : "float-end btn btn-sm btn-outline-danger"}
-                                    onClick={(event) => {event.preventDefault(); handleDeleteCourse(course._id);}}>
+                                    onClick={(event) => {event.preventDefault(); handleDeleteCourse(course.cid);}}>
                                             Delete </button>
-                                    <Link to={`/Kanbas/Courses/${course._id}/Home`} className="btn btn-primary">
+                                    <Link to={`/Kanbas/Courses/${course.cid}/Home`} className="btn btn-primary">
                                         <FaSignInAlt></FaSignInAlt> 
                                     </Link>
                                     <button 

@@ -24,9 +24,9 @@ function Courses() {
     const dispatch = useDispatch();
     
     
-    useEffect(() => {
-        client.setItemD(client.COURSES_API, courseId).then((data)=>  {dispatch(setCourse(data))});
-    }, [courseId]);
+    // useEffect(() => {
+    //     client.setItemD(client.COURSES_API, courseId).then((data)=>  {dispatch(setCourse(data))});
+    // }, [courseId]);
     
     const course = useSelector((state: KanbasState) => state.courseReducer.item);
     const indexN = pathname.indexOf(String(courseId));

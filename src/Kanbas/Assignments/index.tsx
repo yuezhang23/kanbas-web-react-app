@@ -86,7 +86,7 @@ function Assignments() {
                                         {assignment.name}
                                         <span className="d-inline-flex float-end">
                                             <button className={pathname.includes("Delete")? "btn me-2 btn-sm btn-primary":"d-none"}
-                                            onClick={()=> handleDeleteAssignemnt(assignment._id, assignment._id)}
+                                            onClick={()=> handleDeleteAssignemnt(assignment.aid, assignment.aid)}
                                             >
                                                 x
                                             </button>
@@ -99,14 +99,14 @@ function Assignments() {
                                         </span>
                                     </div>
                                     <ul className="list-group rounded-0">
-                                        { selectedHW._id ==  assignment._id && assignment.catalog.map((cat:any) => (
+                                        { selectedHW.aid ==  assignment.aid && assignment.catalog.map((cat:any) => (
                                         <li className="list-group-item">
                                             <div className='d-flex flex-row'>
                                                 <FaEllipsisV className='mt-1 me-3'/>
                                                 <FaBook className="text-success mt-1 me-3"/>
                                                 <div className='flex-grow-1'>
                                                     <Link style={colorBlack}
-                                                        to={`/Kanbas/Courses/${courseId}/Assignments/Edit/${assignment._id}:${cat._id}`}
+                                                        to={`/Kanbas/Courses/${courseId}/Assignments/Edit/${assignment.aid}:${cat.id}`}
                                                         onClick={() => handleEdit({...assignment, catalog: [cat]})}>{cat.title}
                                                         <br/>
                                                     </Link>
@@ -116,7 +116,7 @@ function Assignments() {
                                                 </div>
                                                 <span className="float-end">
                                                     <button className={pathname.includes("Delete")? "btn btn-sm btn-primary me-2":"d-none"}
-                                                        onClick={()=> handleDeleteAssignemnt(assignment._id, cat._id)}
+                                                        onClick={()=> handleDeleteAssignemnt(assignment.aid, cat.id)}
                                                             >
                                                                 x
                                                     </button>

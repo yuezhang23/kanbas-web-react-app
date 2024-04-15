@@ -1,6 +1,5 @@
 import axios from "axios";
-// axios.defaults.withCredentials = true;
-// axios.defaults.baseURL = "process.env.FRONTEND_URL"
+axios.defaults.withCredentials = true;
 
 const API_BASE = process.env.REACT_APP_API_BASE;
 
@@ -26,13 +25,13 @@ export const addNewItemD = async (ip:string, item : any) => {
     return response.data
 };
 
-export const updateItemD = async (ip:string, item : any) => {
-    const response = await axios.put(`${ip}/${item._id}`, item);
+export const updateItemD = async (ip:string, itemid : any,item : any) => {
+    const response = await axios.put(`${ip}/${itemid}`, item);
     return response.data
 };
 
-export const updateSubItemD = async (ip:string, item : any, sid:any) => {
-    const response = await axios.put(`${ip}/${item._id}/${sid}`, item);
+export const updateSubItemD = async (ip:string, item : any, itemid : any, sid:any) => {
+    const response = await axios.put(`${ip}/${itemid}/${sid}`, item);
     return response.data
 };
 
