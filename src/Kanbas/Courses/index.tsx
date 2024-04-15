@@ -14,9 +14,6 @@ import HeadNav from "../Navigation/headNav";
 import Grades from "./Grades";
 import { KanbasState } from "../store";
 import { useDispatch, useSelector } from "react-redux";
-import * as client from "../client";
-import { useEffect } from "react";
-import { setCourse } from "../Redux/kanbasReducer";
 
 function Courses() {
     const {courseId} = useParams();
