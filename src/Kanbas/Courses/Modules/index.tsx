@@ -2,7 +2,6 @@ import { useLocation, useParams } from "react-router";
 import ModuleList from "./List";
 import {FaCheckCircle, FaEllipsisV} from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Editor from "./Editor";
 
 function Modules() {
     const { pathname } = useLocation();
@@ -27,13 +26,7 @@ function Modules() {
                 <button className="btn btn-light p-1 rounded-0" type="button"> <FaEllipsisV/> </button>
             </div>
             <div>
-                <ul className="list-group wd-modules rounded-top-0"> 
-                    <li 
-                        className={pathname.includes("editCourse") ? "list-group-item p-0 mx-4" : "d-none"}>
-                        <Editor/>
-                    </li>
-                    <ModuleList />
-                </ul>
+                <ModuleList />
             </div>
         </div>
     );

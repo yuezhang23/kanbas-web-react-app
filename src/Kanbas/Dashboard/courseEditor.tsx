@@ -12,6 +12,7 @@ function CourseEditor(courseIP : any) {
 
     const handleAddNewCourse = () => {
         client.addNewItemD(courseIP.ip, course).then((item)=> {dispatch(addCourse({...item}))});
+        client.initializeItem(courseIP.ip).then((item)=> {dispatch(setCourse(item))});
     };
 
     const handleUpdateCourse = () =>{

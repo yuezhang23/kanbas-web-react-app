@@ -41,7 +41,7 @@ function PublishedCourse() {
                                     <p className="card-text text-truncate">{course.description}</p>
                                     <button 
                                     className={pathname.includes("Courses") ? "d-none" : "float-end btn btn-sm btn-outline-danger"}
-                                    onClick={(event) => {event.preventDefault(); handleDeleteCourse(course.cid);}}>
+                                    onClick={(event) => {event.preventDefault(); handleDeleteCourse(course._id);}}>
                                             Delete </button>
                                     <Link to={`/Kanbas/Courses/${course.cid}/Home`} className="btn btn-primary">
                                         <FaSignInAlt></FaSignInAlt> 
